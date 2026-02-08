@@ -1,0 +1,26 @@
+.cursorHalo {
+  position: fixed;
+  left: 0;
+  top: 0;
+
+  width: 700px;
+  height: 700px;
+
+  pointer-events: none;
+  border-radius: 50%;
+
+  transform: translate(-50%, -50%);
+  will-change: left, top;
+
+  background: radial-gradient(
+                  circle,
+                  rgba(220, 225, 235, 0.08) 1%,
+                  rgba(220, 225, 235, 0.05) 5%,
+                  transparent 80%
+  );
+
+  filter: blur(20px);
+  opacity: 1;
+
+  z-index: 50;
+}

@@ -1,0 +1,45 @@
+.linkContainer {
+  padding-inline: .2rem;
+  overflow: hidden;
+  border-radius: .25rem;
+}
+
+.link {
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 500;
+  position: relative;
+  display: inline-block;
+  isolation: isolate;
+  padding: 0.08em 0.12em;
+
+  &::before {
+    content: "";
+    position: absolute;
+    inset: -1em -1.2em;
+    background: #ffffff;
+    z-index: 0;
+    clip-path: circle(0.72em at calc(1.2em + 0.55em) 50%);
+    transition: clip-path 420ms cubic-bezier(.2, .8, .2, 1);
+  }
+
+  .label {
+    position: relative;
+    z-index: 1;
+    mix-blend-mode: difference;
+    text-decoration: none;
+  }
+
+  &:hover::before {
+    clip-path: circle(140% at 0.55em 50%);
+  }
+
+  &:focus-visible {
+    outline: 2px solid #0a76f6;
+    outline-offset: 2px;
+  }
+
+  &:hover {
+    text-decoration: none;
+  }
+}

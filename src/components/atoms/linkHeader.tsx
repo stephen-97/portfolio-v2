@@ -1,11 +1,17 @@
-// organisms/Header/Header.tsx
-import styles from "./linkHeader.module.scss";
-import React from "react";
-import Link from 'next/link'
+import styles from './linkHeader.module.scss';
+import React from 'react';
+import Link from 'next/link';
 
 type LinkHeaderProps = React.ComponentProps<typeof Link>;
 
-export const LinkHeader = (props: LinkHeaderProps) => {
+const LinkHeader = ({ children, ...props }: LinkHeaderProps) => {
+  return (
+    <div className={styles.linkContainer}>
+      <Link className={styles.link} {...props}>
+        <span className={styles.label}>{children}</span>
+      </Link>
+    </div>
+  );
+};
 
-    return <Link className={styles.link} {...props} ></Link>
-}
+export default LinkHeader;
