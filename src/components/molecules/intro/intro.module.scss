@@ -1,0 +1,53 @@
+.intro {
+  display: flex;
+  align-items: center;
+  background: var(--black);
+  color: var(--white);
+  padding: 0 1.5rem;
+
+  @include mq-up($sm) {
+    padding: 0 3rem;
+  }
+}
+
+.container {
+  width: 100%;
+  max-width: var(--container);
+  margin: 0 auto;
+}
+
+.kicker {
+  font-size: var(--font-sm);
+  color: var(--gray);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 1.25rem;
+}
+
+.title {
+  font-family: "Space Grotesk", system-ui, sans-serif;
+  font-size: var(--font-h1);
+  font-weight: 700;
+  line-height: 1;
+  margin-bottom: 2rem;
+  color: var(--white);
+
+  @include mq-up($sm) {
+    font-size: var(--font-h1-lg);
+  }
+}
+
+.description {
+  font-size: var(--font-md);
+  line-height: 1.8;
+  color: var(--gray);
+  max-width: 42rem;
+
+  &:not(:last-child) {
+    margin-bottom: 1.25rem;
+  }
+
+  @include mq-up($sm) {
+    font-size: var(--font-md-lg);
+  }
+}

@@ -1,0 +1,24 @@
+.hero {
+  position: relative;
+  overflow: hidden;
+  min-height: calc(100dvh - var(--header-height));
+  &:before {
+    content: "";
+    position: absolute;
+    margin-top: 0;
+    margin-right: 0;
+    pointer-events: none;
+    background: linear-gradient(
+                    to bottom left,
+                    rgba(15, 67, 122, 0.3) 0%,
+                    rgba(15, 67, 122, 0) 50%,
+                    rgba(15, 67, 122, 0) 80%
+    );
+    width: 80%;
+    height: 30rem;
+    top: 10rem;
+    right: -20rem;
+    transform: rotate(-10deg);
+    z-index: 0;
+  }
+}

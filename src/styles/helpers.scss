@@ -1,0 +1,35 @@
+/* BREAKPOINTS */
+
+/* WIDTH */
+$xs: 390px;
+$xs-2: 450px;
+$xs-3: 550px;
+$sm: 768px;
+$lg: 1920px;
+
+
+/* MEDIA QUERIES */
+
+@mixin mq-up($query) {
+  @media (min-width: $query) {
+    @content;
+  }
+}
+
+@mixin mq-down($query) {
+  @media (max-width: $query) {
+    @content;
+  }
+}
+
+@mixin mq-up-height($query) {
+  @media (min-height: $query) {
+    @content;
+  }
+}
+
+@mixin mq-down-height($query) {
+  @media (max-height: $query) {
+    @content;
+  }
+}

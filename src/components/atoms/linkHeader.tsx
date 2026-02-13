@@ -6,11 +6,9 @@ type LinkHeaderProps = React.ComponentProps<typeof Link>;
 
 const LinkHeader = ({ children, ...props }: LinkHeaderProps) => {
   return (
-    <div className={styles.linkContainer}>
-      <Link className={styles.link} {...props}>
-        <span className={styles.label}>{children}</span>
-      </Link>
-    </div>
+    <Link className={styles.link} {...props}>
+      <span className={styles.label}>{children}</span>
+    </Link>
   );
 };
 
