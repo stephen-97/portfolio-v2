@@ -1,0 +1,53 @@
+.button {
+  position: relative;
+  width: 1.5rem;
+  height: 1.5rem;
+  padding: 0;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  @include mq-up($sm) {
+    display: none;
+  }
+
+}
+
+.bar {
+  position: absolute;
+  width: 1.5rem;
+  height: 2px;
+  background-color: var(--gray);
+  transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.bar:nth-child(1) {
+  top: 2px;
+}
+
+.bar:nth-child(2) {
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.bar:nth-child(3) {
+  bottom: 2px;
+}
+
+.active .bar:nth-child(1) {
+  top: 50%;
+  transform: translateY(-50%) rotate(45deg);
+}
+
+.active .bar:nth-child(2) {
+  opacity: 0;
+}
+
+.active .bar:nth-child(3) {
+  bottom: auto;
+  top: 50%;
+  transform: translateY(-50%) rotate(-45deg);
+}

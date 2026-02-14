@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './intro.module.scss';
-
+import LinkDownload from '@/src/components/atoms/linkDownload/linkDownload';
 const Intro = () => {
   return (
     <section className={styles.intro}>
@@ -15,11 +15,7 @@ const Intro = () => {
           minim veniam, quis nostrud exercitation ullamco laboris.
         </p>
 
-        <p className={styles.description}>
-          Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
-          dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-          proident.
-        </p>
+        <LinkDownload href={'/'} />
       </div>
     </section>
   );

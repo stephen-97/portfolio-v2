@@ -1,7 +1,23 @@
 .hero {
   position: relative;
-  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   min-height: calc(100dvh - var(--header-height));
+  overflow: hidden;
+  .introContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    justify-content: center;
+    @include mq-up($sm) {
+      flex-direction: row;
+      margin-bottom: 5rem;
+    }
+    > * {
+      flex: 1;
+    }
+  }
   &:before {
     content: "";
     position: absolute;
@@ -14,9 +30,9 @@
                     rgba(15, 67, 122, 0) 50%,
                     rgba(15, 67, 122, 0) 80%
     );
-    width: 80%;
-    height: 30rem;
-    top: 10rem;
+    width: 90%;
+    height: 40rem;
+    top: 6rem;
     right: -20rem;
     transform: rotate(-10deg);
     z-index: 0;
