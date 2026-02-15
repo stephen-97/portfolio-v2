@@ -6,6 +6,7 @@ export type LayoutProps = React.HTMLAttributes<HTMLElement> & {
   as?: keyof HTMLElementTagNameMap;
   innerClassName?: string;
   backgroundChildren?: React.ReactNode;
+  variant?: 'md' | 'lg';
 };
 
 const Layout = ({
@@ -14,12 +15,18 @@ const Layout = ({
   children,
   innerClassName,
   backgroundChildren,
+  variant = 'md',
   ...rest
 }: LayoutProps) => {
   const Element = as as React.ElementType;
 
   return (
-    <Element className={cn(styles.layout, className)} {...rest}>
+    <Element
+      className={cn(styles.layout, className, {
+        [styles.lg]: variant === 'lg',
+      })}
+      {...rest}
+    >
       {backgroundChildren}
       <div className={cn(styles.layoutChildren, innerClassName)}>
         {children}

@@ -1,0 +1,14 @@
+.title {
+  margin-bottom: 2.5rem;
+}
+
+.paragraph {
+  font-size: var(--font-md);
+  line-height: var(--leading-loose);
+  margin-bottom: 2.5rem;
+}
+
+.service {
+  min-height: calc(100dvh - var(--header-height));
+  align-items: start;
+}

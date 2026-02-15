@@ -25,7 +25,6 @@ const CursorHalo = () => {
       x += (targetX - x) * 0.12;
       y += (targetY - y) * 0.12;
 
-      // ✅ le halo est centré via translate(-50%, -50%) en CSS
       halo.style.left = `${x}px`;
       halo.style.top = `${y}px`;
 

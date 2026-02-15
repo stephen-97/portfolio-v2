@@ -3,8 +3,6 @@
   display: inline-block;
 }
 
-/* Layers */
-
 .wrapper::before,
 .wrapper::after {
   content: "";
@@ -16,8 +14,8 @@
   transform-origin: bottom right;
 
   transition:
-          transform .4s cubic-bezier(.4, 0, .2, 1),
-          opacity .3s;
+          transform .2s cubic-bezier(.4, 0, .2, 1),
+          opacity .2s;
 }
 
 .wrapper::before {
@@ -33,14 +31,10 @@
   opacity: 0.9;
 }
 
-/* Hover */
-
 .wrapper:hover::before,
 .wrapper:hover::after {
   transform: rotate(0deg);
 }
-
-/* Link */
 
 .button {
   position: relative;
@@ -64,12 +58,10 @@
           box-shadow .3s ease;
 }
 
-/* Hover bouton */
-
 .wrapper:hover .button {
   background: #ffffff0f;
   border-color: rgba(255, 255, 255, 0.4);
-  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;}
+  box-shadow: rgba(0, 0, 0, 0.16) 0 1px 4px;}
 
 .label {
   font-size: var(--font-sm);

@@ -44,7 +44,7 @@
   max-width: 42rem;
 
   &:not(:last-child) {
-    margin-bottom: 1.25rem;
+    margin-bottom: 2rem;
   }
 
   @include mq-up($sm) {
