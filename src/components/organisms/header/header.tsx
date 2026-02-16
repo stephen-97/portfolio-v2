@@ -26,6 +26,7 @@ export const Header = () => {
         as="header"
         className={cn(styles.header, { [styles.scrolled]: scrolled })}
         innerClassName={styles.inner}
+        mainPage={false}
       >
         <div className={styles.left}></div>
 
