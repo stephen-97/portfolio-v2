@@ -1,17 +1,16 @@
 import React from 'react';
 import styles from './services.module.scss';
 import Layout from '@/src/components/atoms/layout/layout';
-import ServiceBlock, {
-  ServiceColor,
-} from '@/src/components/molecules/serviceBlock/serviceBlock';
+import ServiceBlock from '@/src/components/molecules/serviceBlock/serviceBlock';
 import BackgroundBlocks from '@/src/components/atoms/backgrounds/backgroundBlocks/backgroundBlocks';
 import { SkillsGraphSVG2 } from '@/src/lib/svg';
+import { TagColor } from '@/src/components/atoms/tag/tag';
 
 type ServiceItem = {
   title: string;
   tags?: string[];
   svg: React.ReactNode;
-  color: ServiceColor;
+  color: TagColor;
 };
 
 const services: ServiceItem[] = [

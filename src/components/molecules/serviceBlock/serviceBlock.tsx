@@ -1,8 +1,7 @@
 import React from 'react';
 import styles from './serviceBlock.module.scss';
 import cn from 'classnames';
-
-export type ServiceColor = 'purple' | 'blue' | 'green' | 'orange' | 'white';
+import Tag, { TagColor } from '@/src/components/atoms/tag/tag';
 
 export type ServiceBlockProps = {
   title: string;
@@ -10,7 +9,7 @@ export type ServiceBlockProps = {
   tags?: string[];
   svg?: React.ReactNode;
   graphSVG?: React.ReactNode;
-  color?: ServiceColor;
+  color?: TagColor;
   className?: string;
 };
 
@@ -38,10 +37,13 @@ const ServiceBlock = ({
 
       {tags && tags.length > 0 && (
         <ul className={styles.tags}>
-          {tags.map((tag, index) => (
-            <li key={index} className={styles.tag}>
-              {tag}
-            </li>
+          {tags.map((title, index) => (
+            <Tag
+              key={index}
+              title={title}
+              color={color}
+              className={styles.tag}
+            />
           ))}
         </ul>
       )}

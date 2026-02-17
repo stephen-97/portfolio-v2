@@ -2,12 +2,12 @@ import React from 'react';
 import styles from './projects.module.scss';
 import Layout from '@/src/components/atoms/layout/layout';
 import BackgroundAurora from '@/src/components/atoms/backgrounds/backgroundAurora/backgroundAurora';
-import Project from '@/src/components/atoms/project/project';
+import Project from '@/src/components/molecules/project/project';
 
 const projects = [
   {
-    title: 'Enterprise Dashboard',
-    period: 'Jan 2024 – Present',
+    title: 'Javascript + Java developer',
+    period: '2025 - 2026',
     description:
       'Development of a high-performance internal dashboard used to monitor KPIs and business metrics. Focus on scalability, modular architecture and performance optimization.',
     stack: [
@@ -53,7 +53,7 @@ const Projects = () => {
       innerClassName={styles.inner}
       backgroundChildren={<BackgroundAurora />}
     >
-      <h2>Projects</h2>
+      <h2 className={styles.title}>Projects</h2>
 
       <div className={styles.wrapper}>
         {projects.map((project, index) => (

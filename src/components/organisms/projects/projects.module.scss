@@ -1,4 +1,17 @@
 .projects {
   min-height: calc(100dvh - var(--header-height));
   align-items: start;
+
+  .title {
+    margin-bottom: 4rem;
+  }
+
+  .wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    @include mq-up($sm) {
+      flex-direction: row;
+    }
+  }
 }

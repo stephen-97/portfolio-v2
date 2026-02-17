@@ -1,5 +1,6 @@
 import React from 'react';
 import styles from './project.module.scss';
+import Tag from '@/src/components/atoms/tag/tag';
 
 type ProjectProps = {
   title: string;
@@ -30,16 +31,11 @@ const Project = ({
         <span className={styles.period}>{period}</span>
         <p className={styles.description}>{description}</p>
 
-        <div className={styles.stack}>
+        <ul className={styles.stack}>
           {stack.map((item, index) => (
-            <div key={index} className={styles.badge}>
-              {item.icon && (
-                <span className={styles.badgeIcon}>{item.icon}</span>
-              )}
-              {item.label}
-            </div>
+            <Tag key={index} color={'white'} title={item.label} />
           ))}
-        </div>
+        </ul>
       </div>
     </article>
   );
