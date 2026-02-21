@@ -69,19 +69,7 @@ const Services = () => {
       backgroundChildren={<BackgroundBlocks />}
       className={styles.service}
     >
-      <Title index={'01'}>About me</Title>
-
-      <p className={styles.paragraph}>
-        I’m currently working as a Frontend Engineer, focused on building
-        high-performance and accessible web applications. With several years of
-        professional experience, I specialize in modern frontend technologies
-        such as React, Next.js, TypeScript, and scalable CSS architectures using
-        SCSS Modules. My expertise goes beyond development itself. I’m deeply
-        involved in frontend architecture, writing technical specifications,
-        conducting code reviews, and ensuring long-term maintainability through
-        clean structure and strong engineering principles. I care about building
-        systems that are not only functional, but scalable and easy to evolve.
-      </p>
+      <Title index={'02'}>Skills</Title>
 
       <div className={styles.grid}>
         <div className={styles.left}>

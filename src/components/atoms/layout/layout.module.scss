@@ -8,10 +8,14 @@
     padding-inline: 1rem;
     width: 100%;
   }
-  &.lg {
-
+  &.sm {
+    .layoutChildren {
+      max-width: var(--container-sm);
+    }
   }
   &.mainPage {
-    margin-bottom: 4rem;
+    .layoutChildren {
+      padding-block: 6rem;
+    }
   }
 }

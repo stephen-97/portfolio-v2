@@ -1,0 +1,36 @@
+.paragraph {
+  font-size: var(--font-md);
+  line-height: var(--leading-loose);
+  color: var(--gray);
+  margin-bottom: 1rem;
+}
+
+.techList {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(8.75rem, 12.5rem));
+  gap: 0 0.625rem;
+  padding: 0;
+  margin: 1.25rem 0 1rem 0;
+  list-style: none;
+
+  li {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+    "Liberation Mono", "Courier New", monospace;
+    position: relative;
+    padding-left: 1.5rem;
+    margin-bottom: 0.75rem;
+    font-size: var(--font-xs);
+    color: var(--white);
+    font-weight: 700;
+  }
+
+  li::before {
+    content: "▹";
+    position: absolute;
+    left: 0;
+    top: 0.125rem;
+    color: var(--white);
+    font-size: var(--fz-sm);
+    line-height: 0.75rem;
+  }
+}

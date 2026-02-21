@@ -11,14 +11,23 @@ const CursorHalo = () => {
     const halo = haloRef.current;
     if (!halo) return;
 
-    let x = window.innerWidth / 2;
-    let y = window.innerHeight / 2;
-    let targetX = x;
-    let targetY = y;
+    let x = 0;
+    let y = 0;
+    let targetX = 0;
+    let targetY = 0;
+    let started = false;
 
     const onMouseMove = (e: MouseEvent) => {
       targetX = e.clientX;
       targetY = e.clientY;
+
+      if (!started) {
+        x = targetX;
+        y = targetY;
+        halo.style.opacity = '1';
+        started = true;
+        rafRef.current = requestAnimationFrame(animate);
+      }
     };
 
     const animate = () => {
@@ -32,7 +41,6 @@ const CursorHalo = () => {
     };
 
     window.addEventListener('mousemove', onMouseMove, { passive: true });
-    rafRef.current = requestAnimationFrame(animate);
 
     return () => {
       window.removeEventListener('mousemove', onMouseMove);
