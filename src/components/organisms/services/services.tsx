@@ -5,6 +5,7 @@ import ServiceBlock from '@/src/components/molecules/serviceBlock/serviceBlock';
 import BackgroundBlocks from '@/src/components/atoms/backgrounds/backgroundBlocks/backgroundBlocks';
 import { SkillsGraphSVG2 } from '@/src/lib/svg';
 import { TagColor } from '@/src/components/atoms/tag/tag';
+import Title from '@/src/components/atoms/title/title';
 
 type ServiceItem = {
   title: string;
@@ -68,7 +69,7 @@ const Services = () => {
       backgroundChildren={<BackgroundBlocks />}
       className={styles.service}
     >
-      <h2 className={styles.title}>About me</h2>
+      <Title index={'01'}>About me</Title>
 
       <p className={styles.paragraph}>
         I’m currently working as a Frontend Engineer, focused on building
