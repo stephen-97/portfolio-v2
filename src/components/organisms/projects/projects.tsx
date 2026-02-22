@@ -108,11 +108,7 @@ const sideProjects = [
 
 const Projects = () => {
   return (
-    <Layout
-      className={styles.projects}
-      innerClassName={styles.inner}
-      backgroundChildren={<BackgroundAurora />}
-    >
+    <Layout className={styles.projects} innerClassName={styles.inner}>
       <Title index={'02'}>Solo projects</Title>
       <div className={styles.wrapper}>
         {projects.map((project) => (

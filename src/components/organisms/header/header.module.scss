@@ -1,15 +1,13 @@
 .header {
   display: flex;
-  position: fixed;
+  position: fixed !important;
   top: 0;
   width: 100%;
   height: var(--header-height);
   z-index: 50;
   align-items: center;
-
   background: transparent;
   border-bottom: 1px solid transparent;
-
   transition:
           background-color 0.3s ease,
           backdrop-filter 0.3s ease,
