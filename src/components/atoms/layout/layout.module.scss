@@ -3,11 +3,6 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  .layoutChildren {
-    max-width: var(--container);
-    padding-inline: 1rem;
-    width: 100%;
-  }
   &.sm {
     .layoutChildren {
       max-width: var(--container-sm);
@@ -18,4 +13,9 @@
       padding-block: 6rem;
     }
   }
+}
+.layoutChildren {
+  max-width: var(--container);
+  padding-inline: 1rem;
+  width: 100%;
 }

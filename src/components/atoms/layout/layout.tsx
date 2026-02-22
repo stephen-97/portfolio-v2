@@ -30,7 +30,7 @@ const Layout = ({
       {...rest}
     >
       {backgroundChildren}
-      <div className={cn(styles.layoutChildren, innerClassName)}>
+      <div className={cn(innerClassName, styles.layoutChildren)}>
         {children}
       </div>
     </Element>

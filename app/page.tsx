@@ -6,6 +6,7 @@ import Services from '@/src/components/organisms/services/services';
 import Projects from '@/src/components/organisms/projects/projects';
 import AboutMe from '@/src/components/organisms/aboutMe/aboutMe';
 import Works from '@/src/components/organisms/works/works';
+import Footer from '@/src/components/organisms/footer/footer';
 
 export default function Home() {
   return (
@@ -19,6 +20,7 @@ export default function Home() {
         <Projects />
         <Works />
       </main>
+      <Footer />
     </>
   );
 }

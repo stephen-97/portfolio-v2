@@ -113,7 +113,7 @@ const Projects = () => {
       innerClassName={styles.inner}
       backgroundChildren={<BackgroundAurora />}
     >
-      <Title index={'02'}>Professional Projects</Title>
+      <Title index={'02'}>Solo projects</Title>
       <div className={styles.wrapper}>
         {projects.map((project) => (
           <Project
@@ -123,22 +123,6 @@ const Projects = () => {
             period={project.period}
             description={project.description}
             stack={project.stack}
-          />
-        ))}
-      </div>
-
-      <h2 className={styles.titleSecondary}>Open Source & Side Projects</h2>
-
-      <div className={styles.wrapper}>
-        {sideProjects.map((project) => (
-          <Project
-            key={project.title}
-            title={project.title}
-            role={project.role}
-            period={project.period}
-            description={project.description}
-            stack={project.stack}
-            links={project.links}
           />
         ))}
       </div>
