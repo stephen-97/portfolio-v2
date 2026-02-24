@@ -45,7 +45,7 @@ const ITEMS: WorkItem<WorkKey>[] = [
 
 const Works = () => {
   return (
-    <Layout variant="sm">
+    <Layout variant="xs">
       <Title index="04">Where I worked</Title>
       <ContentSlider duration={450} items={ITEMS} />
     </Layout>

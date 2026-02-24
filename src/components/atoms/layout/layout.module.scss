@@ -3,6 +3,12 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  &.xs {
+    .layoutChildren {
+      max-width: var(--container-xs);
+    }
+  }
+
   &.sm {
     .layoutChildren {
       max-width: var(--container-sm);

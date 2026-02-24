@@ -66,6 +66,7 @@ const services: ServiceItem[] = [
 const Services = () => {
   return (
     <Layout
+      variant={'sm'}
       backgroundChildren={<BackgroundBlocks />}
       className={styles.service}
     >

@@ -1,13 +1,29 @@
-'use client';
-
 import React from 'react';
 import styles from './footer.module.scss';
-import Link from 'next/link';
-import { GitHubSVG } from '@/src/lib/svg';
 import Layout from '@/src/components/atoms/layout/layout';
 import LinkIcon from '@/src/components/atoms/linkIcon/linkIcon';
+import { TLink } from '@/src/components/organisms/header/header';
+import LinkHeader from '@/src/components/atoms/linkHeader';
 
-const Footer = () => {
+export type TSocialMediaLink = {
+  id: string | number;
+  href: string;
+  label: string;
+  icon: {
+    type: string;
+    children: {
+      type: string;
+      text: string;
+    }[];
+  }[];
+};
+
+type FooterProps = {
+  quickLinks: TLink[];
+  socialMediaLinks: TSocialMediaLink[];
+};
+const Footer = ({ quickLinks, socialMediaLinks }: FooterProps) => {
+  console.log(socialMediaLinks);
   return (
     <Layout
       as="footer"
@@ -28,22 +44,36 @@ const Footer = () => {
         <div className={styles.col}>
           <h3 className={styles.heading}>Quick Links</h3>
           <nav className={styles.links}>
-            <Link href="/about">About</Link>
-            <Link href="/projects">Projects</Link>
-            <Link href="/contact">Contact</Link>
+            <ul>
+              {quickLinks?.map((link) => (
+                <li key={link.id}>
+                  <LinkHeader href={link.href}>{link.title}</LinkHeader>
+                </li>
+              ))}
+            </ul>
           </nav>
         </div>
 
         <div className={styles.col}>
           <h3 className={styles.heading}>Connect</h3>
           <div className={styles.socials}>
-            <LinkIcon href="/">
-              <GitHubSVG size={18} />
-            </LinkIcon>
-            <LinkIcon href="/">
-              <GitHubSVG size={18} />
-            </LinkIcon>
-            <a href="#" aria-label="LinkedIn"></a>
+            {socialMediaLinks?.map((social) => {
+              const htmlContent = social.icon
+                ?.map((node) =>
+                  node.children?.map((child) => child.text).join(''),
+                )
+                .join('');
+
+              return (
+                <LinkIcon
+                  key={social.id}
+                  href={social.href}
+                  aria-label={social.label}
+                >
+                  <span dangerouslySetInnerHTML={{ __html: htmlContent }} />
+                </LinkIcon>
+              );
+            })}
           </div>
         </div>
       </div>

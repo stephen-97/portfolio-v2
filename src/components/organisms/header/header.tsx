@@ -6,8 +6,13 @@ import LinkHeader from '@/src/components/atoms/linkHeader';
 import Layout from '@/src/components/atoms/layout/layout';
 import cn from 'classnames';
 import HamburgerButton from '@/src/components/atoms/hamburgerButton/hamburgerButton';
+import { Link_strapi } from '@/src/lib/api-types/strapi-types';
 
-export const Header = () => {
+type HeaderProps = {
+  quickLinks: Link_strapi[];
+};
+
+export const Header = ({ quickLinks }: HeaderProps) => {
   const [scrolled, setScrolled] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
 
@@ -36,15 +41,11 @@ export const Header = () => {
           aria-label="Navigation principale"
         >
           <ul>
-            <li>
-              <LinkHeader href="#about">Recherche</LinkHeader>
-            </li>
-            <li>
-              <LinkHeader href="#experience">À propos</LinkHeader>
-            </li>
-            <li>
-              <LinkHeader href="#contact">Contact</LinkHeader>
-            </li>
+            {quickLinks?.map((link) => (
+              <li key={link.id}>
+                <LinkHeader href={''}>{link.title}</LinkHeader>
+              </li>
+            ))}
           </ul>
         </nav>
 
@@ -60,19 +61,15 @@ export const Header = () => {
       <div
         className={cn(styles.mobileMenu, { [styles.open]: isOpen })}
         aria-hidden={!isOpen}
-        role={'menu'}
+        role="menu"
       >
         <nav aria-label="Navigation mobile">
           <ul>
-            <li>
-              <LinkHeader href="#about">Recherche</LinkHeader>
-            </li>
-            <li>
-              <LinkHeader href="#experience">À propos</LinkHeader>
-            </li>
-            <li>
-              <LinkHeader href="#contact">Contact</LinkHeader>
-            </li>
+            {quickLinks?.map((link) => (
+              <li key={`mobile-${link.id}`}>
+                <LinkHeader href={link.href}>{link.title}</LinkHeader>
+              </li>
+            ))}
           </ul>
         </nav>
       </div>

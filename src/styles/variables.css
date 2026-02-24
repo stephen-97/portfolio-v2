@@ -65,7 +65,8 @@
        ======================== */
 
     --header-height: 4rem;
-    --container-sm: 43.75rem;
+    --container-xs: 43.75rem;
+    --container-sm: 70rem;
     --container: 80rem;
     --container-mg: 80rem;
 }
