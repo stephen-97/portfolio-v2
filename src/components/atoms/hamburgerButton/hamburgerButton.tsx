@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+import React from 'react';
 import styles from './hamburgerButton.module.scss';
 import cn from 'classnames';
+import { useTranslations } from 'next-intl';
 
 export type TStateHandler<T> = {
   set: React.Dispatch<T>;
@@ -18,6 +19,8 @@ const HamburgerButton = ({
   onToggle,
   openStateHandler,
 }: HamburgerButtonProps) => {
+  const t = useTranslations('header.menu-button');
+
   const isOpen = openStateHandler.state;
   const setIsOpen = openStateHandler.set;
 
@@ -31,11 +34,7 @@ const HamburgerButton = ({
     <>
       <button
         type="button"
-        aria-label={
-          isOpen
-            ? 'Fermer le menu de navigation'
-            : 'Ouvrir le menu de navigation'
-        }
+        aria-label={isOpen ? t('open') : t('close')}
         aria-expanded={isOpen}
         onClick={handleClick}
         className={cn(styles.button, className, {

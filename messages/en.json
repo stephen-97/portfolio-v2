@@ -1,0 +1,13 @@
+{
+  "footer": {
+    "quickLinks-title": "Quick Links",
+    "socialMedia-title": "Connect",
+    "portfolio-title": "Portfolio"
+  },
+  "header": {
+    "menu-button": {
+      "open": "The side menu is open",
+      "close": "The side menu is close"
+    }
+  }
+}

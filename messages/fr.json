@@ -1,0 +1,13 @@
+{
+  "footer": {
+    "quickLinks-title": "Liens rapides",
+    "socialMedia-title": "Connectez vous ?",
+    "portfolio-title": "Portfolio"
+  },
+  "header": {
+    "menu-button": {
+      "open": "Le menu de navigation latérale est ouvert",
+      "close": "Le menu de navigation latérale est fermé"
+    }
+  }
+}

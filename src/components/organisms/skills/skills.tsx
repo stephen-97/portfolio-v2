@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './services.module.scss';
+import styles from './skills.module.scss';
 import Layout from '@/src/components/atoms/layout/layout';
 import ServiceBlock from '@/src/components/molecules/serviceBlock/serviceBlock';
 import BackgroundBlocks from '@/src/components/atoms/backgrounds/backgroundBlocks/backgroundBlocks';
@@ -14,7 +14,7 @@ type ServiceItem = {
   color: TagColor;
 };
 
-const services: ServiceItem[] = [
+const skills: ServiceItem[] = [
   {
     title: 'Gradiation Background',
     color: 'white',
@@ -74,11 +74,11 @@ const Services = () => {
 
       <div className={styles.grid}>
         <div className={styles.left}>
-          <ServiceBlock {...services[0]} />
+          <ServiceBlock {...skills[0]} />
         </div>
 
         <div className={styles.right}>
-          {services.slice(1).map((service, index) => (
+          {skills.slice(1).map((service, index) => (
             <ServiceBlock key={index} {...service} />
           ))}
         </div>
