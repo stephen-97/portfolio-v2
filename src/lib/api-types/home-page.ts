@@ -1,3 +1,8 @@
+import {
+  BlocksRenderer,
+  type BlocksContent,
+} from '@strapi/blocks-react-renderer';
+
 export interface HomePage_strapi {
   id: number;
   documentId: string;
@@ -27,7 +32,7 @@ export interface StatisticList_strapi {
 
 export interface AboutMe_strapi {
   id: number;
-  description: Description_strapi[];
+  description: BlocksContent;
   sectionTitle: SectionTitle_strapi;
 }
 

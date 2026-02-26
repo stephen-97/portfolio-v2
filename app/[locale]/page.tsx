@@ -11,18 +11,32 @@ import { getHomePage, getNavigation } from '@/src/lib/strapi';
 import { Navigation_strapi } from '@/src/lib/api-types/strapi-types';
 import { HomePage_strapi } from '@/src/lib/api-types/home-page';
 
-const SECTION_COMPONENTS = {
-  hero: Hero,
-  about: AboutMe,
-  skills: Skills,
-  projects: Projects,
-  works: Works,
-} as const;
+type SectionId = 'about' | 'skills' | 'projects' | 'works';
+
+type SectionRenderProps = {
+  id: string;
+  homePage: HomePage_strapi;
+};
+
+const SECTION_RENDERERS: Record<
+  SectionId,
+  (props: SectionRenderProps) => JSX.Element
+> = {
+  about: ({ id, homePage }) => (
+    <AboutMe id={id} aboutMeData={homePage.aboutMe} />
+  ),
+  skills: ({ id, homePage }) => <Skills id={id} skillsData={homePage.skills} />,
+  projects: ({ id, homePage }) => (
+    <Projects id={id} projectsData={homePage.projects} />
+  ),
+  works: ({ id, homePage }) => <Works id={id} worksData={homePage.works} />,
+};
 
 const Home = async () => {
   const navigation: Navigation_strapi = await getNavigation();
-  const HomePage: HomePage_strapi = await getHomePage();
+  const homePage: HomePage_strapi = await getHomePage();
 
+  console.log(homePage);
   const quickLinks = navigation.links;
   const socialMediaLinks = navigation.mediaLinks;
 
@@ -31,16 +45,14 @@ const Home = async () => {
       <Header quickLinks={quickLinks} />
       <CursorHalo />
       <main className={styles.main}>
-        <Hero />
-        {quickLinks.map((link, index) => {
-          const sectionId = link.href.replace('#', '');
+        <Hero heroData={homePage.hero} />
 
-          const Component =
-            SECTION_COMPONENTS[sectionId as keyof typeof SECTION_COMPONENTS];
+        {quickLinks.map((link) => {
+          const sectionId = link.href.replace('#', '') as SectionId;
+          const render = SECTION_RENDERERS[sectionId];
+          if (!render) return null;
 
-          if (!Component) return null;
-
-          return <Component key={index} id={sectionId} />;
+          return <div key={link.id}>{render({ id: sectionId, homePage })}</div>;
         })}
       </main>
       <Footer quickLinks={quickLinks} socialMediaLinks={socialMediaLinks} />
