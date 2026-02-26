@@ -18,10 +18,20 @@ export interface MediaLink_strapi {
   id: number;
   href: string;
   label: string;
-  icon: Icon_strapi[];
+  icon: Icon_strapi;
 }
 
 export interface Icon_strapi {
+  id: number;
+  documentId: string;
+  title: string;
+  SVG: Svg_strapi[];
+  createdAt: string;
+  updatedAt: string;
+  publishedAt: string;
+}
+
+export interface Svg_strapi {
   type: string;
   children: Children_strapi[];
 }

@@ -7,8 +7,9 @@ import Projects from '@/src/components/organisms/projects/projects';
 import AboutMe from '@/src/components/organisms/aboutMe/aboutMe';
 import Works from '@/src/components/organisms/works/works';
 import Footer from '@/src/components/organisms/footer/footer';
-import { getNavigation } from '@/src/lib/strapi';
+import { getHomePage, getNavigation } from '@/src/lib/strapi';
 import { Navigation_strapi } from '@/src/lib/api-types/strapi-types';
+import { HomePage_strapi } from '@/src/lib/api-types/home-page';
 
 const SECTION_COMPONENTS = {
   hero: Hero,
@@ -20,6 +21,7 @@ const SECTION_COMPONENTS = {
 
 const Home = async () => {
   const navigation: Navigation_strapi = await getNavigation();
+  const HomePage: HomePage_strapi = await getHomePage();
 
   const quickLinks = navigation.links;
   const socialMediaLinks = navigation.mediaLinks;
@@ -30,7 +32,7 @@ const Home = async () => {
       <CursorHalo />
       <main className={styles.main}>
         <Hero />
-        {quickLinks.map((link) => {
+        {quickLinks.map((link, index) => {
           const sectionId = link.href.replace('#', '');
 
           const Component =
@@ -38,11 +40,7 @@ const Home = async () => {
 
           if (!Component) return null;
 
-          return (
-            <section id={sectionId} key={sectionId}>
-              <Component />
-            </section>
-          );
+          return <Component key={index} id={sectionId} />;
         })}
       </main>
       <Footer quickLinks={quickLinks} socialMediaLinks={socialMediaLinks} />

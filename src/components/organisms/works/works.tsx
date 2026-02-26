@@ -4,6 +4,7 @@ import Title from '@/src/components/atoms/title/title';
 import ContentSlider, {
   WorkItem,
 } from '@/src/components/molecules/contentSlider/contentSlider';
+import { SectionProps } from 'react-html-props';
 
 type WorkKey = 'actency-coexya' | 'actency' | 'gendarmerie';
 
@@ -43,9 +44,9 @@ const ITEMS: WorkItem<WorkKey>[] = [
   },
 ];
 
-const Works = () => {
+const Works = ({ id }: SectionProps) => {
   return (
-    <Layout variant="xs">
+    <Layout id={id} variant="xs">
       <Title index="04">Where I worked</Title>
       <ContentSlider duration={450} items={ITEMS} />
     </Layout>

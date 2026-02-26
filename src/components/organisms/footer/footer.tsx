@@ -63,11 +63,9 @@ const Footer = ({ quickLinks, socialMediaLinks }: FooterProps) => {
           <h3 className={styles.heading}>{t('socialMedia-title')}</h3>
           <ul className={styles.socials}>
             {socialMediaLinks?.map((social) => {
-              const htmlContent = social.icon
-                ?.map((node) =>
-                  node.children?.map((child) => child.text).join(''),
-                )
-                .join('');
+              const htmlContent = social.icon?.SVG.map((node) =>
+                node.children?.map((child) => child.text).join(''),
+              ).join('');
 
               return (
                 <li key={social.id}>
