@@ -1,7 +1,4 @@
-import {
-  BlocksRenderer,
-  type BlocksContent,
-} from '@strapi/blocks-react-renderer';
+import { BlocksContent } from '@strapi/blocks-react-renderer';
 
 export interface HomePage_strapi {
   id: number;
@@ -21,10 +18,10 @@ export interface Hero_strapi {
   subtitle: string;
   title: string;
   description: string;
-  statisticList: StatisticList_strapi[];
+  statistics: Statistic_strapi[];
 }
 
-export interface StatisticList_strapi {
+export interface Statistic_strapi {
   id: number;
   value: string;
   title: string;
@@ -39,9 +36,16 @@ export interface AboutMe_strapi {
 export interface Description_strapi {
   type: string;
   children: Children_strapi[];
+  format?: string;
 }
 
 export interface Children_strapi {
+  type: string;
+  text?: string;
+  children?: Children2_strapi[];
+}
+
+export interface Children2_strapi {
   type: string;
   text: string;
 }
@@ -79,6 +83,40 @@ export interface ProjectBlock_strapi {
   id: number;
   title: string;
   description: string;
+  skills: Skill_strapi[];
+  links: Link_strapi[];
+}
+
+export interface Skill_strapi {
+  id: number;
+  title: string;
+}
+
+export interface Link_strapi {
+  id: number;
+  href: string;
+  label: string;
+  icon: Icon_strapi;
+}
+
+export interface Icon_strapi {
+  id: number;
+  documentId: string;
+  title: string;
+  SVG: Svg_strapi[];
+  createdAt: string;
+  updatedAt: string;
+  publishedAt: string;
+}
+
+export interface Svg_strapi {
+  type: string;
+  children: Children3_strapi[];
+}
+
+export interface Children3_strapi {
+  type: string;
+  text: string;
 }
 
 export interface Works_strapi {

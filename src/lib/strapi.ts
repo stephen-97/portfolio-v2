@@ -25,10 +25,11 @@ export async function getNavigation() {
 export async function getHomePage() {
   const res = await fetch(
     `${STRAPI_URL}/api/home-page?` +
-      `populate[hero][populate][0]=statisticList&` +
+      `populate[hero][populate][0]=statistics&` +
       `populate[aboutMe][populate][0]=sectionTitle&` +
       `populate[skills][populate][skillsBlock][populate][skillList]=*&` +
-      `populate[projects][populate]=*&` +
+      `populate[projects][populate][projectBlocks][populate][skills]=*&` +
+      `populate[projects][populate][projectBlocks][populate][links][populate][icon]=*&` +
       `populate[works][populate]=*`,
     {
       headers: {

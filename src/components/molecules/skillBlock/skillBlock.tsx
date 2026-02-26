@@ -1,21 +1,20 @@
 import React from 'react';
-import styles from './serviceBlock.module.scss';
+import styles from './skillBlock.module.scss';
 import cn from 'classnames';
 import Tag, { TagColor } from '@/src/components/atoms/tag/tag';
+import { SkillsBlock_strapi } from '@/src/lib/api-types/home-page';
 
-export type ServiceBlockProps = {
-  title: string;
+export type ServiceBlockProps = SkillsBlock_strapi & {
   titlePosition?: 'left' | 'center';
-  tags?: string[];
   svg?: React.ReactNode;
   graphSVG?: React.ReactNode;
   color?: TagColor;
   className?: string;
 };
 
-const ServiceBlock = ({
+const SkillBlock = ({
   title,
-  tags,
+  skillList,
   svg,
   titlePosition = 'left',
   color = 'purple',
@@ -35,11 +34,12 @@ const ServiceBlock = ({
 
       {graphSVG && <div className={styles.chart}>{graphSVG}</div>}
 
-      {tags && tags.length > 0 && (
+      {skillList && skillList.length > 0 && (
         <ul className={styles.tags}>
-          {tags.map((title, index) => (
+          {skillList.map(({ title, id }) => (
             <Tag
-              key={index}
+              as={'li'}
+              key={id}
               title={title}
               color={color}
               className={styles.tag}
@@ -51,4 +51,4 @@ const ServiceBlock = ({
   );
 };
 
-export default ServiceBlock;
+export default SkillBlock;

@@ -10,14 +10,15 @@ type HeroProps = {
   heroData: Hero_strapi;
 };
 const Hero = ({ heroData }: HeroProps) => {
-  const { title, description, subtitle } = heroData;
+  const { title, description, subtitle, statistics } = heroData;
+
   return (
     <Layout className={styles.hero} innerClassName={styles.inner}>
       <div className={styles.introContainer}>
         <Intro title={title} description={description} subtitle={subtitle} />
         <IntroPhoto />
       </div>
-      <Stats />
+      <Stats statistics={statistics} />
     </Layout>
   );
 };

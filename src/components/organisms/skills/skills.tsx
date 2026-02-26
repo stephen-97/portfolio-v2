@@ -1,102 +1,64 @@
 import React from 'react';
 import styles from './skills.module.scss';
 import Layout from '@/src/components/atoms/layout/layout';
-import ServiceBlock from '@/src/components/molecules/serviceBlock/serviceBlock';
 import BackgroundBlocks from '@/src/components/atoms/backgrounds/backgroundBlocks/backgroundBlocks';
 import { SkillsGraphSVG2 } from '@/src/lib/svg';
-import { TagColor } from '@/src/components/atoms/tag/tag';
 import Title from '@/src/components/atoms/title/title';
 import { SectionProps } from 'react-html-props';
+import { Skills_strapi } from '@/src/lib/api-types/home-page';
+import SkillBlock from '@/src/components/molecules/skillBlock/skillBlock';
 
-type ServiceItem = SectionProps & {
-  title: string;
-  tags?: string[];
-  svg: React.ReactNode;
-  color: TagColor;
+type SkillsProps = SectionProps & {
+  skills: Skills_strapi;
 };
 
-const skills: ServiceItem[] = [
-  {
-    title: 'Gradiation Background',
-    color: 'white',
-    tags: [
-      'Next js',
-      'Node',
-      'React js',
-      'Javascript',
-      'TypeScript',
-      'Jquery',
-      'SCSS Modules',
-    ],
-    svg: <></>,
-  },
-  {
-    title: 'Frontend Development',
-    color: 'purple',
-    tags: [
-      'Next js',
-      'Node',
-      'React js',
-      'Javascript',
-      'TypeScript',
-      'Jquery',
-      'SCSS Modules',
-    ],
-    svg: <></>,
-  },
-  {
-    title: 'Architecture & Engineering',
-    color: 'blue',
-    tags: ['Clean Architecture', 'SSR / SSG', 'API Integration'],
-    svg: <></>,
-  },
-  {
-    title: 'Performance & Optimization',
-    color: 'green',
-    tags: ['Core Web Vitals', 'Lighthouse', 'Code Splitting'],
-    svg: <></>,
-  },
-  {
-    title: 'Accessibilité & RGAA',
-    color: 'orange',
-    tags: ['RGAA', 'WCAG 2.1', 'ARIA', 'Keyboard Navigation'],
-    svg: <></>,
-  },
-];
+const Services = ({ id, skills }: SkillsProps) => {
+  const { skillsBlock } = skills;
 
-const Services = ({ id }: SectionProps) => {
+  if (!skillsBlock?.length) return null;
+
+  const leftBlock = skillsBlock[0];
+  const rightBlocks = skillsBlock.slice(1, 5);
+  const bottomBlocks = skillsBlock.slice(5);
+
   return (
     <Layout
-      variant={'sm'}
+      variant="sm"
       backgroundChildren={<BackgroundBlocks />}
       className={styles.service}
       id={id}
     >
-      <Title index={'02'}>Skills</Title>
+      <Title index="02">Skills</Title>
 
       <div className={styles.grid}>
         <div className={styles.left}>
-          <ServiceBlock {...skills[0]} />
+          {leftBlock && <SkillBlock {...leftBlock} />}
         </div>
 
-        <div className={styles.right}>
-          {skills.slice(1).map((service, index) => (
-            <ServiceBlock key={index} {...service} />
+        <ul className={styles.right}>
+          {rightBlocks.map((block) => (
+            <li key={block.id}>
+              <SkillBlock {...block} />
+            </li>
           ))}
-        </div>
-
-        <div className={styles.bottom}>
-          <ServiceBlock
-            color={'white'}
-            title={'Skills'}
-            graphSVG={<SkillsGraphSVG2 />}
-            titlePosition={'center'}
-            svg={<></>}
-          />
-        </div>
+        </ul>
       </div>
     </Layout>
   );
 };
 
+/**
+ * <div className={styles.bottom}>
+ *           {bottomBlocks.map((block) => (
+ *             <SkillBlock
+ *               key={block.id}
+ *               {...block}
+ *               color="white"
+ *               graphSVG={<SkillsGraphSVG2 />}
+ *               titlePosition="center"
+ *               svg={<></>}
+ *             />
+ *           ))}
+ *         </div>
+ */
 export default Services;
