@@ -3,9 +3,13 @@ import styles from './aboutMe.module.scss';
 import Layout from '@/src/components/atoms/layout/layout';
 import Title from '@/src/components/atoms/title/title';
 
-const Hero = () => {
+export type SectionProps = {
+  id?: string;
+};
+
+const Hero = ({ id }: SectionProps) => {
   return (
-    <Layout className={styles.hero} innerClassName={styles.inner}>
+    <Layout id={id} className={styles.hero} innerClassName={styles.inner}>
       <Title index={'01'}>About me</Title>
 
       <p className={styles.paragraph}>

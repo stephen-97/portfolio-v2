@@ -43,7 +43,7 @@ export const Header = ({ quickLinks }: HeaderProps) => {
           <ul>
             {quickLinks?.map((link) => (
               <li key={link.id}>
-                <LinkHeader href={''}>{link.title}</LinkHeader>
+                <LinkHeader href={link.href}>{link.title}</LinkHeader>
               </li>
             ))}
           </ul>

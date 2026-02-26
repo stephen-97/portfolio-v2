@@ -6,8 +6,9 @@ import BackgroundBlocks from '@/src/components/atoms/backgrounds/backgroundBlock
 import { SkillsGraphSVG2 } from '@/src/lib/svg';
 import { TagColor } from '@/src/components/atoms/tag/tag';
 import Title from '@/src/components/atoms/title/title';
+import { SectionProps } from 'react-html-props';
 
-type ServiceItem = {
+type ServiceItem = SectionProps & {
   title: string;
   tags?: string[];
   svg: React.ReactNode;
@@ -63,12 +64,13 @@ const skills: ServiceItem[] = [
   },
 ];
 
-const Services = () => {
+const Services = ({ id }: SectionProps) => {
   return (
     <Layout
       variant={'sm'}
       backgroundChildren={<BackgroundBlocks />}
       className={styles.service}
+      id={id}
     >
       <Title index={'02'}>Skills</Title>
 
