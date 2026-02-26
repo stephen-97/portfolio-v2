@@ -1,6 +1,4 @@
-// src/components/templates/homeContent/homeContent.tsx
-
-import styles from './homeContent.module.scss';
+import React from 'react';
 import Hero from '@/src/components/organisms/hero/hero';
 import Skills from '@/src/components/organisms/skills/skills';
 import Projects from '@/src/components/organisms/projects/projects';
@@ -22,16 +20,14 @@ const SECTION_COMPONENTS: Record<
   (homePage: HomePage_strapi, id: string) => ReactNode
 > = {
   about: (homePage, id) => <AboutMe id={id} aboutMeData={homePage.aboutMe} />,
-  skills: (homePage, id) => <Skills id={id} skillsData={homePage.skills} />,
-  projects: (homePage, id) => (
-    <Projects id={id} projectsData={homePage.projects} />
-  ),
-  works: (homePage, id) => <Works id={id} worksData={homePage.works} />,
+  skills: (homePage, id) => <Skills id={id} skills={homePage.skills} />,
+  projects: (homePage, id) => <Projects id={id} projects={homePage.projects} />,
+  works: (homePage, id) => <Works id={id} works={homePage.works} />,
 };
 
 const HomeContent = ({ homePage, quickLinks }: HomeContentProps) => {
   return (
-    <main className={styles.main}>
+    <>
       <Hero heroData={homePage.hero} />
 
       {quickLinks.map((link) => {
@@ -39,9 +35,13 @@ const HomeContent = ({ homePage, quickLinks }: HomeContentProps) => {
         const render = SECTION_COMPONENTS[sectionId];
         if (!render) return null;
 
-        return render(homePage, sectionId);
+        return (
+          <React.Fragment key={sectionId}>
+            {render(homePage, sectionId)}
+          </React.Fragment>
+        );
       })}
-    </main>
+    </>
   );
 };
 

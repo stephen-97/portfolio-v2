@@ -5,6 +5,7 @@ import ContentSlider, {
   WorkItem,
 } from '@/src/components/molecules/contentSlider/contentSlider';
 import { SectionProps } from 'react-html-props';
+import { Works_strapi } from '@/src/lib/api-types/home-page';
 
 type WorkKey = 'actency-coexya' | 'actency' | 'gendarmerie';
 
@@ -44,7 +45,10 @@ const ITEMS: WorkItem<WorkKey>[] = [
   },
 ];
 
-const Works = ({ id }: SectionProps) => {
+type WorksProps = SectionProps & {
+  works: Works_strapi;
+};
+const Works = ({ id }: WorksProps) => {
   return (
     <Layout id={id} variant="xs">
       <Title index="04">Where I worked</Title>

@@ -1,7 +1,6 @@
 import React from 'react';
 import styles from './intro.module.scss';
 import LinkDownload from '@/src/components/atoms/linkDownload/linkDownload';
-import { Description_strapi } from '@/src/lib/api-types/home-page';
 
 type IntroProps = {
   subtitle: string;
