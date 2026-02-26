@@ -1,48 +1,42 @@
+'use client';
+
 import React from 'react';
 import styles from './aboutMe.module.scss';
 import Layout from '@/src/components/atoms/layout/layout';
 import Title from '@/src/components/atoms/title/title';
+import { AboutMe_strapi } from '@/src/lib/api-types/home-page';
+import { BlocksRenderer } from '@strapi/blocks-react-renderer';
 
 export type SectionProps = {
   id?: string;
 };
 
-const Hero = ({ id }: SectionProps) => {
+type AboutMeProps = SectionProps & {
+  aboutMeData: AboutMe_strapi;
+};
+
+const AboutMe = ({ id, aboutMeData }: AboutMeProps) => {
+  const { sectionTitle, description } = aboutMeData;
   return (
     <Layout id={id} className={styles.hero} innerClassName={styles.inner}>
-      <Title index={'01'}>About me</Title>
+      <Title index={'01'}>{sectionTitle.title}</Title>
 
-      <p className={styles.paragraph}>
-        I’m currently working as a Frontend Engineer, focused on building
-        high-performance and accessible web applications. With several years of
-        professional experience, I specialize in modern frontend technologies
-        such as React, Next.js, TypeScript, and scalable CSS architectures using
-        SCSS Modules. My expertise goes beyond development itself.
-      </p>
-
-      <p className={styles.paragraph}>
-        Here are a few technologies I’ve been working with recently:
-      </p>
-
-      <ul className={styles.techList}>
-        <li>Next Js</li>
-        <li>React</li>
-        <li>Node</li>
-        <li>Nest.js</li>
-        <li>TypeScript</li>
-        <li>Cursor</li>
-      </ul>
-
-      <p className={styles.paragraph}>
-        And here somes technologies I’m recently learning:
-      </p>
-
-      <ul className={styles.techList}>
-        <li>Solid JS</li>
-        <li>Svelte</li>
-      </ul>
+      <BlocksRenderer
+        content={description}
+        blocks={{
+          paragraph: ({ children }) => (
+            <p className={styles.paragraph}>{children}</p>
+          ),
+          list: ({ children, format }) => {
+            if (format === 'unordered') {
+              return <ul className={styles.techList}>{children}</ul>;
+            }
+            return <ol className={styles.techList}>{children}</ol>;
+          },
+        }}
+      />
     </Layout>
   );
 };
 
-export default Hero;
+export default AboutMe;
