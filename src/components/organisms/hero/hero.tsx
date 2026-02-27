@@ -4,13 +4,13 @@ import Intro from '@/src/components/molecules/intro/intro';
 import IntroPhoto from '@/src/components/molecules/introPhoto/introPhoto';
 import Layout from '@/src/components/atoms/layout/layout';
 import Stats from '@/src/components/molecules/stats/stats';
-import { Hero_strapi } from '@/src/lib/api-types/home-page';
+import { HeroSection_strapi } from '@/src/lib/api-types/home-page';
 
 type HeroProps = {
-  heroData: Hero_strapi;
+  heroData: HeroSection_strapi;
 };
 const Hero = ({ heroData }: HeroProps) => {
-  const { title, description, subtitle, statistics } = heroData;
+  const { title, description, subtitle, statistic } = heroData;
 
   return (
     <Layout className={styles.hero} innerClassName={styles.inner}>
@@ -18,7 +18,7 @@ const Hero = ({ heroData }: HeroProps) => {
         <Intro title={title} description={description} subtitle={subtitle} />
         <IntroPhoto />
       </div>
-      <Stats statistics={statistics} />
+      <Stats statistics={statistic} />
     </Layout>
   );
 };

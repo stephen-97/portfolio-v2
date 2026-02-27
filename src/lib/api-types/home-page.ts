@@ -1,4 +1,6 @@
-import { BlocksContent } from '@strapi/blocks-react-renderer';
+import type { BlocksContent } from '@strapi/blocks-react-renderer';
+
+/* ================= ROOT ================= */
 
 export interface HomePage_strapi {
   id: number;
@@ -6,19 +8,22 @@ export interface HomePage_strapi {
   createdAt: string;
   updatedAt: string;
   publishedAt: string;
-  hero: Hero_strapi;
-  aboutMe: AboutMe_strapi;
-  skills: Skills_strapi;
-  projects: Projects_strapi;
-  works: Works_strapi;
+
+  heroSection: HeroSection_strapi;
+  aboutMeSection: AboutMeSection_strapi;
+  skillsSection: SkillsSection_strapi;
+  projectsSection: ProjectsSection_strapi;
+  worksSection: WorksSection_strapi;
 }
 
-export interface Hero_strapi {
+/* ================= HERO ================= */
+
+export interface HeroSection_strapi {
   id: number;
   subtitle: string;
   title: string;
   description: string;
-  statistics: Statistic_strapi[];
+  statistic: Statistic_strapi[];
 }
 
 export interface Statistic_strapi {
@@ -27,36 +32,23 @@ export interface Statistic_strapi {
   title: string;
 }
 
-export interface AboutMe_strapi {
+/* ================= ABOUT ME ================= */
+
+export interface AboutMeSection_strapi {
   id: number;
   description: BlocksContent;
   sectionTitle: SectionTitle_strapi;
 }
 
-export interface Description_strapi {
-  type: string;
-  children: Children_strapi[];
-  format?: string;
-}
-
-export interface Children_strapi {
-  type: string;
-  text?: string;
-  children?: Children2_strapi[];
-}
-
-export interface Children2_strapi {
-  type: string;
-  text: string;
-}
-
 export interface SectionTitle_strapi {
   id: number;
   title: string;
-  icon: any;
+  icon: unknown;
 }
 
-export interface Skills_strapi {
+/* ================= SKILLS ================= */
+
+export interface SkillsSection_strapi {
   id: number;
   skillsBlock: SkillsBlock_strapi[];
 }
@@ -66,25 +58,7 @@ export interface SkillsBlock_strapi {
   title: string;
   description?: string;
   isSkillGraph?: boolean;
-  skillList: SkillList_strapi[];
-}
-
-export interface SkillList_strapi {
-  id: number;
-  title: string;
-}
-
-export interface Projects_strapi {
-  id: number;
-  projectBlocks: ProjectBlock_strapi[];
-}
-
-export interface ProjectBlock_strapi {
-  id: number;
-  title: string;
-  description: string;
-  skills: Skill_strapi[];
-  links: Link_strapi[];
+  skill: Skill_strapi[];
 }
 
 export interface Skill_strapi {
@@ -92,40 +66,48 @@ export interface Skill_strapi {
   title: string;
 }
 
-export interface Link_strapi {
+/* ================= PROJECTS ================= */
+
+export interface ProjectsSection_strapi {
+  id: number;
+  projectBlock: ProjectBlock_strapi[];
+}
+
+export interface ProjectBlock_strapi {
+  id: number;
+  title: string;
+  description: string;
+  skills: Skill_strapi[];
+  links: ProjectLink_strapi[];
+}
+
+export interface ProjectLink_strapi {
   id: number;
   href: string;
   label: string;
-  icon: Icon_strapi;
+  icon?: ProjectIcon_strapi;
 }
 
-export interface Icon_strapi {
+export interface ProjectIcon_strapi {
   id: number;
   documentId: string;
   title: string;
-  SVG: Svg_strapi[];
+  SVG: BlocksContent;
   createdAt: string;
   updatedAt: string;
   publishedAt: string;
 }
 
-export interface Svg_strapi {
-  type: string;
-  children: Children3_strapi[];
-}
+/* ================= WORKS ================= */
 
-export interface Children3_strapi {
-  type: string;
-  text: string;
-}
-
-export interface Works_strapi {
+export interface WorksSection_strapi {
   id: number;
-  works: Work_strapi[];
+  workBlock: WorkBlock_strapi[];
 }
 
-export interface Work_strapi {
+export interface WorkBlock_strapi {
   id: number;
   agency: string;
   date: string;
+  description: BlocksContent;
 }

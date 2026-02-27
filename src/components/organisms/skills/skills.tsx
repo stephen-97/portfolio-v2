@@ -5,11 +5,11 @@ import BackgroundBlocks from '@/src/components/atoms/backgrounds/backgroundBlock
 import { SkillsGraphSVG2 } from '@/src/lib/svg';
 import Title from '@/src/components/atoms/title/title';
 import { SectionProps } from 'react-html-props';
-import { Skills_strapi } from '@/src/lib/api-types/home-page';
+import { SkillsSection_strapi } from '@/src/lib/api-types/home-page';
 import SkillBlock from '@/src/components/molecules/skillBlock/skillBlock';
 
 type SkillsProps = SectionProps & {
-  skills: Skills_strapi;
+  skills: SkillsSection_strapi;
 };
 
 const Services = ({ id, skills }: SkillsProps) => {
@@ -42,23 +42,21 @@ const Services = ({ id, skills }: SkillsProps) => {
             </li>
           ))}
         </ul>
+
+        <div className={styles.bottom}>
+          {bottomBlocks.map((block) => (
+            <SkillBlock
+              key={block.id}
+              {...block}
+              color="white"
+              graphSVG={<SkillsGraphSVG2 />}
+              svg={<></>}
+            />
+          ))}
+        </div>
       </div>
     </Layout>
   );
 };
 
-/**
- * <div className={styles.bottom}>
- *           {bottomBlocks.map((block) => (
- *             <SkillBlock
- *               key={block.id}
- *               {...block}
- *               color="white"
- *               graphSVG={<SkillsGraphSVG2 />}
- *               titlePosition="center"
- *               svg={<></>}
- *             />
- *           ))}
- *         </div>
- */
 export default Services;

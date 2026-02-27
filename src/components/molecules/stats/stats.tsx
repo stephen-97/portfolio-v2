@@ -1,13 +1,6 @@
 import styles from './stats.module.scss';
 import { Statistic_strapi } from '@/src/lib/api-types/home-page';
 
-const stats = [
-  { value: '12+', label: 'Years experience' },
-  { value: '60+', label: 'Clients' },
-  { value: '240+', label: 'Completed projects' },
-  { value: '20+', label: 'Achievements' },
-];
-
 type StatsProps = {
   statistics: Statistic_strapi[];
 };
