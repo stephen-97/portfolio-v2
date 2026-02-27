@@ -25,12 +25,12 @@ export async function getNavigation() {
 export async function getHomePage() {
   const res = await fetch(
     `${STRAPI_URL}/api/home-page?` +
-      `populate[hero][populate][0]=statistics&` +
-      `populate[aboutMe][populate][0]=sectionTitle&` +
-      `populate[skills][populate][skillsBlock][populate][skillList]=*&` +
-      `populate[projects][populate][projectBlocks][populate][skills]=*&` +
-      `populate[projects][populate][projectBlocks][populate][links][populate][icon]=*&` +
-      `populate[works][populate]=*`,
+      `populate[heroSection][populate][statistic]=*&` +
+      `populate[aboutMeSection][populate][sectionTitle]=*&` +
+      `populate[skillsSection][populate][skillsBlock][populate][skill]=*&` +
+      `populate[projectsSection][populate][projectBlock][populate][skills]=*&` +
+      `populate[projectsSection][populate][projectBlock][populate][links][populate][icon]=*&` +
+      `populate[worksSection][populate][workBlock][populate]=*&`,
     {
       headers: {
         Authorization: `Bearer ${STRAPI_TOKEN}`,

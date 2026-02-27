@@ -9,18 +9,16 @@ import React, {
 } from 'react';
 import styles from './contentSlider.module.scss';
 import cn from 'classnames';
+import { BlocksContent, BlocksRenderer } from '@strapi/blocks-react-renderer';
 
-export type WorkItem<K extends string = string> = {
-  key: K;
-  label: string;
+export type ItemSliderProps = {
   title: string;
-  period: string;
-  subtitle?: string;
-  highlights?: string[];
+  date: string;
+  strapiBlockContent: BlocksContent;
 };
 
-type Props<K extends string = string> = {
-  items: WorkItem<K>[];
+type ContentSliderProps = {
+  items: ItemSliderProps[];
   duration?: number;
   enterThreshold?: number;
 };
@@ -29,7 +27,7 @@ const ContentSlider = <K extends string = string>({
   items,
   duration = 450,
   enterThreshold = 0.01,
-}: Props<K>) => {
+}: ContentSliderProps) => {
   const [activeIndex, setActiveIndex] = useState(0);
   const [activeVisible, setActiveVisible] = useState(true);
 
@@ -124,7 +122,7 @@ const ContentSlider = <K extends string = string>({
 
             return (
               <div
-                key={item.key}
+                key={i}
                 ref={(el) => {
                   itemRefs.current[i] = el;
                 }}
@@ -135,19 +133,8 @@ const ContentSlider = <K extends string = string>({
               >
                 <div className={styles.viewInner}>
                   <h3 className={styles.h3}>{item.title}</h3>
-                  <p className={styles.period}>{item.period}</p>
-
-                  {item.subtitle && <p className={styles.p}>{item.subtitle}</p>}
-
-                  {item.highlights && item.highlights.length > 0 && (
-                    <ul className={styles.list}>
-                      {item.highlights.map((point, index) => (
-                        <li key={index} className={styles.listItem}>
-                          {point}
-                        </li>
-                      ))}
-                    </ul>
-                  )}
+                  <p className={styles.period}>{item.date}</p>
+                  <BlocksRenderer content={item.strapiBlockContent} />
                 </div>
               </div>
             );
@@ -170,12 +157,12 @@ const ContentSlider = <K extends string = string>({
           aria-hidden="true"
         />
 
-        {items.map((it, i) => {
+        {items.map((item, i) => {
           const selected = i === activeIndex;
 
           return (
             <button
-              key={it.key}
+              key={i}
               ref={(el) => {
                 btnRefs.current[i] = el;
               }}
@@ -187,7 +174,7 @@ const ContentSlider = <K extends string = string>({
               aria-selected={selected}
               onClick={() => onSelect(i)}
             >
-              <span className={styles.tabLabel}>{it.label}</span>
+              <span className={styles.tabLabel}>{item.title}</span>
             </button>
           );
         })}

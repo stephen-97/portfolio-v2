@@ -4,7 +4,7 @@ import React from 'react';
 import styles from './aboutMe.module.scss';
 import Layout from '@/src/components/atoms/layout/layout';
 import Title from '@/src/components/atoms/title/title';
-import { AboutMe_strapi } from '@/src/lib/api-types/home-page';
+import { AboutMeSection_strapi } from '@/src/lib/api-types/home-page';
 import { BlocksRenderer } from '@strapi/blocks-react-renderer';
 
 export type SectionProps = {
@@ -12,11 +12,11 @@ export type SectionProps = {
 };
 
 type AboutMeProps = SectionProps & {
-  aboutMeData: AboutMe_strapi;
+  aboutMe: AboutMeSection_strapi;
 };
 
-const AboutMe = ({ id, aboutMeData }: AboutMeProps) => {
-  const { sectionTitle, description } = aboutMeData;
+const AboutMe = ({ id, aboutMe }: AboutMeProps) => {
+  const { sectionTitle, description } = aboutMe;
   return (
     <Layout id={id} className={styles.hero} innerClassName={styles.inner}>
       <Title index={'01'}>{sectionTitle.title}</Title>
