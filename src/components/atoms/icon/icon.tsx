@@ -1,11 +1,29 @@
 import React from 'react';
-import { GitHubSVG, LinkedinSVG, NpmSVG, ExternalLinkSVG } from '@/src/lib/svg';
+import {
+  GitHubSVG,
+  NpmSVG,
+  ExternalLinkSVG,
+  LinkedinSVG,
+  MagnifyingGlassSVG,
+  CodeSVG,
+  BookSVG,
+  PlusCircleSVG,
+  TeamSVG,
+} from '@/src/lib/svg';
 
-export type IconName = 'github' | 'linkedin' | 'npm' | 'external';
+export type IconName =
+  | 'github'
+  | 'linkedin'
+  | 'npm'
+  | 'external'
+  | 'accessibility'
+  | 'background'
+  | 'code'
+  | 'plus'
+  | 'team';
 
 type IconProps = {
   name: string;
-  className?: string;
 };
 
 const ICON_MAP: Record<IconName, React.ReactNode> = {
@@ -13,9 +31,14 @@ const ICON_MAP: Record<IconName, React.ReactNode> = {
   linkedin: <LinkedinSVG />,
   npm: <NpmSVG />,
   external: <ExternalLinkSVG />,
+  accessibility: <MagnifyingGlassSVG />,
+  background: <BookSVG />,
+  code: <CodeSVG />,
+  plus: <PlusCircleSVG />,
+  team: <TeamSVG />,
 };
 
-const Icon = ({ name, className }: IconProps) => {
+const Icon = ({ name }: IconProps) => {
   const normalized = name.trim().toLowerCase() as IconName;
   const icon = ICON_MAP[normalized];
 

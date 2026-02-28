@@ -43,7 +43,7 @@ export interface AboutMeSection_strapi {
 export interface SectionTitle_strapi {
   id: number;
   title: string;
-  icon: unknown;
+  icon: any;
 }
 
 /* ================= SKILLS ================= */
@@ -59,11 +59,21 @@ export interface SkillsBlock_strapi {
   description?: string;
   isSkillGraph?: boolean;
   skill: Skill_strapi[];
+  icon_skill?: SkillIcon_strapi;
 }
 
 export interface Skill_strapi {
   id: number;
   title: string;
+}
+
+export interface SkillIcon_strapi {
+  id: number;
+  documentId: string;
+  title: string;
+  createdAt: string;
+  updatedAt: string;
+  publishedAt: string;
 }
 
 /* ================= PROJECTS ================= */

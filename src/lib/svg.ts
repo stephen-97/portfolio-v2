@@ -4,3 +4,8 @@ export { default as GitHubSVG } from '../../public/github.svg';
 export { default as ExternalLinkSVG } from '../../public/externalLink.svg';
 export { default as NpmSVG } from '../../public/npm.svg';
 export { default as LinkedinSVG } from '../../public/linkedin.svg';
+export { default as CodeSVG } from '../../public/code.svg';
+export { default as BookSVG } from '../../public/book.svg';
+export { default as MagnifyingGlassSVG } from '../../public/magnifyingGlass.svg';
+export { default as PlusCircleSVG } from '../../public/plus-circle.svg';
+export { default as TeamSVG } from '../../public/team.svg';

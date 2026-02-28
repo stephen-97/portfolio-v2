@@ -2,11 +2,11 @@ import React from 'react';
 import styles from './skillBlock.module.scss';
 import cn from 'classnames';
 import Tag, { TagColor } from '@/src/components/atoms/tag/tag';
+import Icon from '@/src/components/atoms/icon/icon';
 import { SkillsBlock_strapi } from '@/src/lib/api-types/home-page';
 
 export type ServiceBlockProps = SkillsBlock_strapi & {
   titlePosition?: 'left' | 'center';
-  svg?: React.ReactNode;
   graphSVG?: React.ReactNode;
   color?: TagColor;
   className?: string;
@@ -14,14 +14,15 @@ export type ServiceBlockProps = SkillsBlock_strapi & {
 
 const SkillBlock = ({
   title,
-  svg,
   titlePosition = 'left',
   color = 'purple',
   className,
   graphSVG,
   skill,
   description,
+  icon_skill,
 }: ServiceBlockProps) => {
+  console.log('ici', icon_skill?.title);
   return (
     <article className={cn(styles.card, styles[color], className)}>
       <div
@@ -29,18 +30,24 @@ const SkillBlock = ({
           [styles.center]: titlePosition === 'center',
         })}
       >
-        {svg && <div className={styles.icon}>{svg}</div>}
+        {icon_skill?.title && (
+          <div className={styles.icon}>
+            <Icon name={icon_skill.title} />
+          </div>
+        )}
+
         <h3 className={styles.title}>{title}</h3>
       </div>
 
       {graphSVG && <div className={styles.chart}>{graphSVG}</div>}
 
-      {description && description?.length > 0 && <p>{description}</p>}
+      {description && <p>{description}</p>}
+
       {skill && skill.length > 0 && (
         <ul className={styles.tags}>
           {skill.map(({ title, id }) => (
             <Tag
-              as={'li'}
+              as="li"
               key={id}
               title={title}
               color={color}

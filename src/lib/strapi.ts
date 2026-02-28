@@ -28,7 +28,8 @@ export async function getHomePage() {
       `populate[heroSection][populate][statistic]=*&` +
       `populate[aboutMeSection][populate][sectionTitle]=*&` +
       `populate[skillsSection][populate][skillsBlock][populate][skill]=*&` +
-      `populate[projectsSection][populate][projectBlock][populate][skills]=*&` +
+      `populate[skillsSection][populate][skillsBlock][populate][icon_skill]=*&` +
+      `populate[projectsSection][populate][projectBlock][populate][skills]=*&` + // ← remis
       `populate[projectsSection][populate][projectBlock][populate][links][populate][icon]=*&` +
       `populate[worksSection][populate][workBlock][populate]=*&`,
     {

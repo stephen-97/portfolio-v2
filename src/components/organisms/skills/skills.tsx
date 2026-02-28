@@ -9,6 +9,7 @@ import Title from '@/src/components/atoms/title/title';
 import { SectionProps } from 'react-html-props';
 import { SkillsSection_strapi } from '@/src/lib/api-types/home-page';
 import SkillBlock from '@/src/components/molecules/skillBlock/skillBlock';
+import { TagColor } from '@/src/components/atoms/tag/tag';
 
 type SkillsProps = SectionProps & {
   skills: SkillsSection_strapi;
@@ -22,8 +23,6 @@ const Services = ({ id, skills }: SkillsProps) => {
   const leftBlock = skillsBlock[0];
   const rightBlocks = skillsBlock.slice(1, 5);
   const bottomBlocks = skillsBlock.slice(5);
-
-  console.log('skillsBlock', skillsBlock);
 
   return (
     <Layout
@@ -40,11 +39,15 @@ const Services = ({ id, skills }: SkillsProps) => {
         </div>
 
         <ul className={styles.right}>
-          {rightBlocks.map((block) => (
-            <li key={block.id}>
-              <SkillBlock {...block} />
-            </li>
-          ))}
+          {rightBlocks.map((block, index) => {
+            const colors: TagColor[] = ['purple', 'blue', 'green', 'orange'];
+
+            return (
+              <li key={block.id}>
+                <SkillBlock {...block} color={colors[index % colors.length]} />
+              </li>
+            );
+          })}
         </ul>
 
         <div className={styles.bottom}>
@@ -54,7 +57,6 @@ const Services = ({ id, skills }: SkillsProps) => {
               {...block}
               color="white"
               graphSVG={<SkillsGraphSVG2 />}
-              svg={<></>}
             />
           ))}
         </div>
