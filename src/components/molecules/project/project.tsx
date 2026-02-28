@@ -3,10 +3,8 @@
 import React from 'react';
 import styles from './project.module.scss';
 import Tag from '@/src/components/atoms/tag/tag';
-import Link from 'next/link';
-import cn from 'classnames';
+
 import { ProjectBlock_strapi } from '@/src/lib/api-types/home-page';
-import { BlocksRenderer } from '@strapi/blocks-react-renderer';
 import LinkIcon from '@/src/components/atoms/linkIcon/linkIcon';
 
 type ProjectProps = ProjectBlock_strapi;
@@ -14,7 +12,6 @@ type ProjectProps = ProjectBlock_strapi;
 const Project = ({ title, description, skills, links }: ProjectProps) => {
   const hasLinks = links?.length > 0;
 
-  console.log('links', links);
   return (
     <article className={styles.card}>
       <div className={styles.content}>

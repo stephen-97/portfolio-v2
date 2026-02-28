@@ -30,6 +30,9 @@ const SECTION_COMPONENTS: Record<
 };
 
 const HomeContent = ({ homePage, quickLinks }: HomeContentProps) => {
+  const test = homePage;
+  console.log('bro');
+  debugger;
   return (
     <>
       <Hero heroData={homePage.heroSection} />

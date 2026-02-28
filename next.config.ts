@@ -6,6 +6,7 @@ const nextConfig: NextConfig = {
     additionalData: `@use "@/src/styles/helpers.scss" as *;`,
   },
   turbopack: {
+    root: __dirname,
     rules: {
       '*.svg': {
         loaders: ['@svgr/webpack'],
