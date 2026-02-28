@@ -1,5 +1,3 @@
-'use client';
-
 import React from 'react';
 import Hero from '@/src/components/organisms/hero/hero';
 import Skills from '@/src/components/organisms/skills/skills';
@@ -32,8 +30,6 @@ const SECTION_COMPONENTS: Record<
 };
 
 const HomeContent = ({ homePage, quickLinks }: HomeContentProps) => {
-  console.log('homePage', homePage);
-
   return (
     <>
       <Hero heroData={homePage.heroSection} />

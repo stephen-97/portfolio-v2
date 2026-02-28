@@ -9,19 +9,6 @@ import {
   MediaLink_strapi,
 } from '@/src/lib/api-types/strapi-types';
 
-export type TSocialMediaLink = {
-  id: string | number;
-  href: string;
-  label: string;
-  icon: {
-    type: string;
-    children: {
-      type: string;
-      text: string;
-    }[];
-  }[];
-};
-
 type FooterProps = {
   quickLinks: Link_strapi[];
   socialMediaLinks: MediaLink_strapi[];
@@ -63,15 +50,15 @@ const Footer = ({ quickLinks, socialMediaLinks }: FooterProps) => {
           <h3 className={styles.heading}>{t('socialMedia-title')}</h3>
           <ul className={styles.socials}>
             {socialMediaLinks?.map((social) => {
-              const htmlContent = social.icon?.SVG.map((node) =>
-                node.children?.map((child) => child.text).join(''),
-              ).join('');
+              const iconName = social.icon.title;
 
               return (
                 <li key={social.id}>
-                  <LinkIcon href={social.href} aria-label={social.label}>
-                    <span dangerouslySetInnerHTML={{ __html: htmlContent }} />
-                  </LinkIcon>
+                  <LinkIcon
+                    href={social.href}
+                    iconName={iconName}
+                    aria-label={social.label}
+                  />
                 </li>
               );
             })}

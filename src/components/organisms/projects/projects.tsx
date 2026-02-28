@@ -18,7 +18,7 @@ const Projects = ({ id, projects }: ProjectsProps) => {
       <Title index={'02'}>Solo projects</Title>
       <ul className={styles.wrapper}>
         {projectBlock.map((project) => (
-          <li key={project.title}>
+          <li key={project.title} className={styles.item}>
             <Project {...project} />
           </li>
         ))}

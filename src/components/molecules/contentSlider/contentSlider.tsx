@@ -134,7 +134,17 @@ const ContentSlider = <K extends string = string>({
                 <div className={styles.viewInner}>
                   <h3 className={styles.h3}>{item.title}</h3>
                   <p className={styles.period}>{item.date}</p>
-                  <BlocksRenderer content={item.strapiBlockContent} />
+                  <BlocksRenderer
+                    content={item.strapiBlockContent}
+                    blocks={{
+                      list: ({ children }) => (
+                        <ul className={styles.list}>{children}</ul>
+                      ),
+                      'list-item': ({ children }) => (
+                        <li className={styles.listItem}>{children}</li>
+                      ),
+                    }}
+                  />
                 </div>
               </div>
             );

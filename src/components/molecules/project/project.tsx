@@ -1,15 +1,20 @@
+'use client';
+
 import React from 'react';
 import styles from './project.module.scss';
 import Tag from '@/src/components/atoms/tag/tag';
 import Link from 'next/link';
 import cn from 'classnames';
 import { ProjectBlock_strapi } from '@/src/lib/api-types/home-page';
+import { BlocksRenderer } from '@strapi/blocks-react-renderer';
+import LinkIcon from '@/src/components/atoms/linkIcon/linkIcon';
 
 type ProjectProps = ProjectBlock_strapi;
 
 const Project = ({ title, description, skills, links }: ProjectProps) => {
   const hasLinks = links?.length > 0;
 
+  console.log('links', links);
   return (
     <article className={styles.card}>
       <div className={styles.content}>
@@ -24,25 +29,20 @@ const Project = ({ title, description, skills, links }: ProjectProps) => {
 
         {hasLinks && (
           <ul className={styles.links} aria-label="Project links">
-            {links.map((linkItem) => (
-              <li key={linkItem.id}>
-                <Link
-                  href={linkItem.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={cn(styles.link)}
-                  aria-label={`${linkItem.label} - ${title}`}
-                >
-                  {linkItem.icon?.SVG?.map((svg, index) => (
-                    <svg key={index} aria-hidden="true" focusable="false">
-                      {svg.children.map((child, i) => (
-                        <text key={i}>{child.text}</text>
-                      ))}
-                    </svg>
-                  ))}
-                </Link>
-              </li>
-            ))}
+            {links.map((linkItem) => {
+              if (!linkItem.icon) return null;
+
+              return (
+                <li key={linkItem.id}>
+                  <LinkIcon
+                    href={linkItem.href}
+                    iconName={linkItem.icon.title}
+                    aria-label={`${linkItem.label} - ${title}`}
+                    className={styles.link}
+                  />
+                </li>
+              );
+            })}
           </ul>
         )}
       </div>

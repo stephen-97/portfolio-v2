@@ -92,7 +92,6 @@ export interface ProjectIcon_strapi {
   id: number;
   documentId: string;
   title: string;
-  SVG: BlocksContent;
   createdAt: string;
   updatedAt: string;
   publishedAt: string;
