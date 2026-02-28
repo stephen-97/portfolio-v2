@@ -14,12 +14,13 @@ export type ServiceBlockProps = SkillsBlock_strapi & {
 
 const SkillBlock = ({
   title,
-  skillList,
   svg,
   titlePosition = 'left',
   color = 'purple',
   className,
   graphSVG,
+  skill,
+  description,
 }: ServiceBlockProps) => {
   return (
     <article className={cn(styles.card, styles[color], className)}>
@@ -34,9 +35,10 @@ const SkillBlock = ({
 
       {graphSVG && <div className={styles.chart}>{graphSVG}</div>}
 
-      {skillList && skillList.length > 0 && (
+      {description && description?.length > 0 && <p>{description}</p>}
+      {skill && skill.length > 0 && (
         <ul className={styles.tags}>
-          {skillList.map(({ title, id }) => (
+          {skill.map(({ title, id }) => (
             <Tag
               as={'li'}
               key={id}

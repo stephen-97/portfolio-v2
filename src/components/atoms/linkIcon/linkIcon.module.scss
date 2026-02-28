@@ -1,5 +1,4 @@
 .link {
-  display: none;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -18,10 +17,17 @@
     outline-offset: 0.125rem;
   }
 
-  svg {
+  svg, path {
     width: 1.25rem;
     height: 1.25rem;
-    color: #ffffff;
     fill: currentColor;
+  }
+
+  &.npm {
+    svg, path {
+      width: 2rem;
+      height: auto;
+      fill: currentColor;
+    }
   }
 }

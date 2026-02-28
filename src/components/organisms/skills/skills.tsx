@@ -1,3 +1,5 @@
+'use client';
+
 import React from 'react';
 import styles from './skills.module.scss';
 import Layout from '@/src/components/atoms/layout/layout';
@@ -20,6 +22,8 @@ const Services = ({ id, skills }: SkillsProps) => {
   const leftBlock = skillsBlock[0];
   const rightBlocks = skillsBlock.slice(1, 5);
   const bottomBlocks = skillsBlock.slice(5);
+
+  console.log('skillsBlock', skillsBlock);
 
   return (
     <Layout
