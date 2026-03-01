@@ -35,7 +35,7 @@ const Services = ({ id, skills }: SkillsProps) => {
 
       <div className={styles.grid}>
         <div className={styles.left}>
-          {leftBlock && <SkillBlock {...leftBlock} />}
+          {leftBlock && <SkillBlock color={'neutral'} {...leftBlock} />}
         </div>
 
         <ul className={styles.right}>
@@ -55,7 +55,7 @@ const Services = ({ id, skills }: SkillsProps) => {
             <SkillBlock
               key={block.id}
               {...block}
-              color="white"
+              color="neutral"
               graphSVG={<SkillsGraphSVG2 />}
             />
           ))}

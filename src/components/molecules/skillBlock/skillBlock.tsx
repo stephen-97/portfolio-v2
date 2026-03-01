@@ -26,13 +26,12 @@ const SkillBlock = ({
   const hasGraph = Boolean(graphSVG);
   const hasGraphAndSkills = hasGraph && hasSkills;
 
-  // ✅ Tri alphabétique optimisé (évite re-tri à chaque render)
   const sortedSkills = useMemo(() => {
     if (!hasSkills) return [];
 
     return [...skill].sort((a, b) =>
       a.title.localeCompare(b.title, 'fr', {
-        sensitivity: 'base', // ignore accents & casse
+        sensitivity: 'base',
       }),
     );
   }, [skill, hasSkills]);

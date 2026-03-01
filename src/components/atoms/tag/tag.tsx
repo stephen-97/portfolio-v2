@@ -2,7 +2,7 @@ import React from 'react';
 import styles from './tag.module.scss';
 import cn from 'classnames';
 
-export type TagColor = 'purple' | 'blue' | 'green' | 'orange' | 'white';
+export type TagColor = 'purple' | 'blue' | 'green' | 'orange' | 'neutral';
 
 export type ServiceBlockProps = React.HTMLAttributes<HTMLElement> & {
   as?: keyof HTMLElementTagNameMap;
@@ -13,7 +13,7 @@ export type ServiceBlockProps = React.HTMLAttributes<HTMLElement> & {
 const Tag = ({
   as = 'li',
   title,
-  color = 'white',
+  color = 'neutral',
   className,
   ...rest
 }: ServiceBlockProps) => {
