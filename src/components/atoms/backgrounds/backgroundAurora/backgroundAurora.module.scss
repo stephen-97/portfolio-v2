@@ -4,11 +4,11 @@
   pointer-events: none;
   opacity: 0.4;
 
-  --dots-color: var(--gray-light);
+  --dots-color: var(--color-text-muted);
   --dots-size: 24px;
 
   background-image: radial-gradient(
-                  var(--gray-light) 1px,
+                  var(--color-text-muted) 1px,
                   transparent 1px
   );
 

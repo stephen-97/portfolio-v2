@@ -1,4 +1,5 @@
 import React from 'react';
+import cn from 'classnames';
 import {
   GitHubSVG,
   NpmSVG,
@@ -10,6 +11,7 @@ import {
   PlusCircleSVG,
   TeamSVG,
 } from '@/src/lib/svg';
+import styles from './icon.module.scss';
 
 export type IconName =
   | 'github'
@@ -24,27 +26,30 @@ export type IconName =
 
 type IconProps = {
   name: string;
+  className?: string;
 };
 
-const ICON_MAP: Record<IconName, React.ReactNode> = {
-  github: <GitHubSVG />,
-  linkedin: <LinkedinSVG />,
-  npm: <NpmSVG />,
-  external: <ExternalLinkSVG />,
-  accessibility: <MagnifyingGlassSVG />,
-  background: <BookSVG />,
-  code: <CodeSVG />,
-  plus: <PlusCircleSVG />,
-  team: <TeamSVG />,
+type IconComponent = React.ComponentType<React.SVGProps<SVGSVGElement>>;
+
+const ICON_MAP: Record<IconName, IconComponent> = {
+  github: GitHubSVG,
+  linkedin: LinkedinSVG,
+  npm: NpmSVG,
+  external: ExternalLinkSVG,
+  accessibility: MagnifyingGlassSVG,
+  background: BookSVG,
+  code: CodeSVG,
+  plus: PlusCircleSVG,
+  team: TeamSVG,
 };
 
-const Icon = ({ name }: IconProps) => {
+const Icon = ({ name, className }: IconProps) => {
   const normalized = name.trim().toLowerCase() as IconName;
-  const icon = ICON_MAP[normalized];
+  const Component = ICON_MAP[normalized];
 
-  if (!icon) return null;
+  if (!Component) return null;
 
-  return <>{icon}</>;
+  return <Component className={cn(styles.icon, className)} />;
 };
 
 export default Icon;

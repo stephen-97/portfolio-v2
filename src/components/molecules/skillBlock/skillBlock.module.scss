@@ -1,5 +1,5 @@
 .card {
-  background: var(--color-card);
+  background: var(--color-bg-card);
   backdrop-filter: blur(20px);
   border: 0.0625rem solid rgba(255, 255, 255, 0.08);
   border-radius: 1.25rem;
@@ -11,6 +11,22 @@
   transition:
           border-color 0.3s ease,
           box-shadow 0.3s ease;
+}
+
+.graphSkillsWrapper {
+  display: flex;
+  flex-direction: column;
+  @include mq-up($sm) {
+    flex-direction: row;
+    align-items: start;
+  }
+}
+
+.description {
+  font-size: var(--font-md);
+  color: var(--color-text-secondary);
+  margin-bottom: 1rem;
+  line-height: 1.6;
 }
 
 .card:hover {
@@ -63,7 +79,7 @@
   font-size: var(--font-xl);
   font-weight: 700;
   margin: 0;
-  color: var(--white);
+  color: var(--color-text-primary);
 }
 
 .tags {
@@ -83,12 +99,12 @@
 
 .white .icon {
   background: rgba(255, 255, 255, 0.2);
-  color: var(--white);
+  color: var(--color-text-primary);
 }
 
 .white .tag {
   border-color: rgba(255, 255, 255, 0.5);
-  color: var(--white);
+  color: var(--color-text-primary);
 }
 
 .purple .icon {

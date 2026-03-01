@@ -1,8 +1,8 @@
 .intro {
   display: flex;
   align-items: center;
-  background: var(--black);
-  color: var(--white);
+  background: var(--color-bg-primary);
+  color: var(--color-text-primary);
   padding: 0 1.5rem;
 
   @include mq-up($sm) {
@@ -18,7 +18,7 @@
 
 .kicker {
   font-size: var(--font-sm);
-  color: var(--gray);
+  color: var(--color-text-secondary);
   letter-spacing: 0.08em;
   text-transform: uppercase;
   margin-bottom: 1.25rem;
@@ -30,7 +30,7 @@
   font-weight: 700;
   line-height: 1;
   margin-bottom: 2rem;
-  color: var(--white);
+  color: var(--color-text-primary);
 
   @include mq-up($sm) {
     font-size: var(--font-h1-lg);
@@ -40,7 +40,7 @@
 .description {
   font-size: var(--font-md);
   line-height: 1.8;
-  color: var(--gray);
+  color: var(--color-text-secondary);
   max-width: 42rem;
 
   &:not(:last-child) {

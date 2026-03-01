@@ -4,7 +4,7 @@
   width: 100%;
   min-height: 22rem;
   border: 0.0625rem solid rgba(255, 255, 255, 0.08);
-  background: var(--gray-dark);
+  background: var(--color-bg-secondary);
   backdrop-filter: blur(0.75rem);
   border-radius: 0.75rem;
   padding: 0.5rem;
@@ -64,7 +64,7 @@
 
 .h3 {
   margin: 0;
-  color: var(--white);
+  color: var(--color-text-primary);
   font-size: var(--font-2xl);
   font-weight: 700;
 }
@@ -78,7 +78,7 @@
 .tabs {
   position: relative;
   border: 0.0625rem solid rgba(255, 255, 255, 0.08);
-  background: var(--gray-dark);
+  background: var(--color-bg-secondary);
   backdrop-filter: blur(0.75rem);
   border-radius: 0.75rem;
   display: flex;
@@ -106,12 +106,12 @@
   font-weight: 600;
   transition: color 200ms ease;
   &.active {
-    color: var(--black)
+    color: var(--color-bg-primary)
   }
 }
 
 .tabBtn:not(.active):hover {
-  color: var(--white);
+  color: var(--color-text-primary);
 }
 
 .tabLabel {
@@ -125,7 +125,7 @@
   top: 0.25rem;
   bottom: 0.25rem;
   left: 0.25rem;
-  background: var(--white);
+  background: var(--color-text-primary);
   border-radius: 0.5rem;
   transform-origin: 50% 50% 0;
   transition:
@@ -138,7 +138,7 @@
 .period {
   margin: 0.5rem 0 1.5rem;
   font-size: var(--font-sm);
-  color: var(--gray);
+  color: var(--color-text-secondary);
   font-family: var(--font-mono, monospace);
 }
 
@@ -154,7 +154,7 @@
   position: relative;
   padding-left: 1.75rem;
   line-height: var(--leading-loose);
-  color: var(--gray);
+  color: var(--color-text-secondary);
 }
 
 .listItem::before {

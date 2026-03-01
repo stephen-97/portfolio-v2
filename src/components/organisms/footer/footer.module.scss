@@ -1,6 +1,6 @@
 .footer {
   border-top: 0.0625rem solid rgba(255, 255, 255, 0.06);
-  background: var(--black);
+  background: var(--color-bg-primary);
 }
 
 .inner {
@@ -28,14 +28,14 @@
 .heading {
   font-size: var(--font-h6);
   font-weight: 600;
-  color: var(--white);
+  color: var(--color-text-primary);
   line-height: var(--leading-tight);
   margin: 0;
 }
 
 .copy {
   font-size: var(--font-sm);
-  color: var(--gray);
+  color: var(--color-text-secondary);
   line-height: var(--leading-normal);
   margin: 0;
 }
@@ -49,14 +49,14 @@
 
 .links a {
   font-size: var(--font-md);
-  color: var(--gray);
+  color: var(--color-text-secondary);
   text-decoration: none;
   transition: color 200ms ease;
   display: inline-block;
   width: auto;
 
   &:hover {
-    color: var(--white);
+    color: var(--color-text-primary);
   }
 }
 
@@ -66,11 +66,11 @@
 }
 
 .socials a {
-  color: var(--gray);
+  color: var(--color-text-secondary);
   transition: color 200ms ease, transform 200ms ease;
 
   &:hover {
-    color: var(--white);
+    color: var(--color-text-primary);
     transform: translateY(-2px);
   }
 }
@@ -83,6 +83,6 @@
 
 .bottom {
   font-size: var(--font-sm);
-  color: var(--gray);
+  color: var(--color-text-secondary);
   text-align: center;
 }

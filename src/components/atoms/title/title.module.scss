@@ -10,7 +10,7 @@
 .title {
   font-weight: 700;
   font-size: var(--font-3xl);
-  color: var(--white);
+  color: var(--color-text-primary);
   margin: 0;
   white-space: nowrap;
 }
@@ -21,7 +21,7 @@
 
   font-size: var(--font-3xl);
   letter-spacing: 0.08em;
-  color: var(--gray);
+  color: var(--color-text-secondary);
   margin-right: 0.75rem;
   font-weight: 500;
 }
@@ -29,6 +29,6 @@
 .line {
   flex: 1;
   height: 0.0625rem;
-  background: var(--white);
+  background: var(--color-text-primary);
   opacity: .15;
 }

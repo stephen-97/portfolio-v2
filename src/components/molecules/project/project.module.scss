@@ -2,7 +2,7 @@
   position: relative;
   background: linear-gradient(
                   145deg,
-                  var(--black) 0%,
+                  var(--color-bg-primary) 0%,
                   #0f0f0f 40%,
                   #141414 100%
   );
@@ -57,7 +57,7 @@
 .description {
   font-size: var(--font-md);
   line-height: 1.6;
-  color: var(--gray);
+  color: var(--color-text-secondary);
   margin-bottom: 1rem;
 }
 

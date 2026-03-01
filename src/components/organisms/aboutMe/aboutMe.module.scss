@@ -1,7 +1,7 @@
 .paragraph {
   font-size: var(--font-md);
   line-height: var(--leading-loose);
-  color: var(--gray);
+  color: var(--color-text-secondary);
   margin-bottom: 1rem;
 }
 
@@ -20,7 +20,7 @@
     padding-left: 1.5rem;
     margin-bottom: 0.75rem;
     font-size: var(--font-xs);
-    color: var(--white);
+    color: var(--color-text-primary);
     font-weight: 700;
   }
 
@@ -29,7 +29,7 @@
     position: absolute;
     left: 0;
     top: 0.125rem;
-    color: var(--white);
+    color: var(--color-text-primary);
     font-size: var(--fz-sm);
     line-height: 0.75rem;
   }
