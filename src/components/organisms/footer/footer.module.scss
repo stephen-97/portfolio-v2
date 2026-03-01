@@ -1,5 +1,5 @@
 .footer {
-  border-top: 0.0625rem solid rgba(255, 255, 255, 0.06);
+  border-top: 0.0625rem solid var(--footer-border);
   background: var(--color-bg-primary);
 }
 
@@ -77,7 +77,7 @@
 
 .separator {
   margin: 3rem 0 2rem;
-  border-top: 1px dashed rgba(255, 255, 255, 0.15);
+  border-top: 1px dashed var(--footer-separator);
   width: 100%;
 }
 

@@ -20,7 +20,7 @@ const Project = ({ title, description, skills, links }: ProjectProps) => {
 
         <ul className={styles.stack}>
           {skills.map((item) => (
-            <Tag key={item.id} color="white" title={item.title} />
+            <Tag key={item.id} color="neutral" title={item.title} />
           ))}
         </ul>
 

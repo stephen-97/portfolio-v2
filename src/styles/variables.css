@@ -79,6 +79,74 @@
     --color-blue-rgb: 59, 130, 246;
     --color-green-rgb: 34, 197, 94;
     --color-orange-rgb: 249, 115, 22;
+
+    /* Links (plus foncé) */
+
+    --link-border: rgba(0, 0, 0, 0.22);
+    --link-hover-border: rgba(0, 0, 0, 0.4);
+    --link-hover-bg: rgba(0, 0, 0, 0.08);
+    --link-focus: rgba(0, 0, 0, 0.5);
+
+    /* Button layered wrapper (plus visible) */
+
+    --button-layer-1-bg: rgba(0, 0, 0, 0.08);
+    --button-layer-1-border: rgba(0, 0, 0, 0.18);
+    --button-layer-2-bg: rgba(0, 0, 0, 0.05);
+    --button-layer-2-border: rgba(0, 0, 0, 0.12);
+
+    /* Header */
+
+    --header-scrolled-bg: rgba(255, 255, 255, 0.92);
+    --header-border: rgba(0, 0, 0, 0.12);
+    --header-shadow-1: rgba(0, 0, 0, 0.15);
+    --header-shadow-2: rgba(0, 0, 0, 0.08);
+    --mobile-menu-border: rgba(0, 0, 0, 0.12);
+    --mobile-menu-shadow-1: rgba(0, 0, 0, 0.15);
+    --mobile-menu-shadow-2: rgba(0, 0, 0, 0.2);
+
+    /* Footer */
+
+    --footer-border: rgba(0, 0, 0, 0.12);
+    --footer-separator: rgba(0, 0, 0, 0.25);
+
+    /** Projects **/
+    --projects-bg: #f3f4f6;
+    --projects-radial: radial-gradient(
+            800px 600px at 50% -10%,
+            rgba(0, 0, 0, 0.06),
+            transparent 60%
+    );
+    --projects-overlay: linear-gradient(
+            to bottom,
+            rgba(0, 0, 0, 0.04),
+            transparent 30%,
+            transparent 70%,
+            rgba(0, 0, 0, 0.08)
+    );
+
+    /* Project Card */
+    --project-card-bg: linear-gradient(
+            145deg,
+            #ffffff 0%,
+            #f3f4f6 40%,
+            #e5e7eb 100%
+    );
+    --project-card-border: rgba(0, 0, 0, 0.12);
+    --project-card-border-hover: rgba(0, 0, 0, 0.25);
+    --project-card-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.15);
+    --project-card-shadow-hover: 0 3rem 6rem rgba(0, 0, 0, 0.25);
+    --project-role-bg: rgba(0, 0, 0, 0.08);
+    --project-role-text: #15161A;
+    --project-logo-bg: #ffffff;
+    --project-logo-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.15);
+
+
+    /** Slider **/
+
+    --slider-tab-text: rgba(75, 85, 99, 0.8);
+    --slider-tab-text-hover: var(--color-text-primary);
+    --slider-tabs-border: rgba(0, 0, 0, 0.12);
+    --slider-views-border: rgba(0, 0, 0, 0.12);
 }
 
 /* ========================
@@ -112,4 +180,72 @@
     --color-blue-rgb: 96, 165, 250;
     --color-green-rgb: 34, 197, 94;
     --color-orange-rgb: 249, 115, 22;
+
+    /* Links */
+
+    --link-border: rgba(255, 255, 255, 0.12);
+    --link-hover-border: rgba(255, 255, 255, 0.25);
+    --link-hover-bg: rgba(255, 255, 255, 0.05);
+    --link-focus: rgba(255, 255, 255, 0.4);
+
+    /* Button layered wrapper */
+
+    --button-layer-1-bg: rgba(255, 255, 255, 0.06);
+    --button-layer-1-border: rgba(255, 255, 255, 0.15);
+    --button-layer-2-bg: rgba(255, 255, 255, 0.03);
+    --button-layer-2-border: rgba(255, 255, 255, 0.1);
+
+    /* Header */
+
+    --header-scrolled-bg: rgba(21, 22, 26, 0.7);
+    --header-border: rgba(255, 255, 255, 0.08);
+    --header-shadow-1: rgba(0, 0, 0, 0.25);
+    --header-shadow-2: rgba(0, 0, 0, 0.15);
+    --mobile-menu-border: rgba(255, 255, 255, 0.08);
+    --mobile-menu-shadow-1: rgba(0, 0, 0, 0.25);
+    --mobile-menu-shadow-2: rgba(0, 0, 0, 0.35);
+
+    /* Footer */
+
+    --footer-border: rgba(255, 255, 255, 0.08);
+    --footer-separator: rgba(255, 255, 255, 0.15);
+
+
+    /** Projects **/
+    --projects-bg: #141417;
+    --projects-radial: radial-gradient(
+            800px 600px at 50% -10%,
+            rgba(255, 255, 255, 0.06),
+            transparent 60%
+    );
+    --projects-overlay: linear-gradient(
+            to bottom,
+            rgba(255, 255, 255, 0.04),
+            transparent 30%,
+            transparent 70%,
+            rgba(0, 0, 0, 0.4)
+    );
+
+    /* Project Card */
+    --project-card-bg: linear-gradient(
+            145deg,
+            var(--color-bg-primary) 0%,
+            #0f0f0f 40%,
+            #141414 100%
+    );
+    --project-card-border: rgba(255, 255, 255, 0.06);
+    --project-card-border-hover: rgba(255, 255, 255, 0.12);
+    --project-card-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.45);
+    --project-card-shadow-hover: 0 3rem 6rem rgba(0, 0, 0, 0.75);
+    --project-role-bg: rgba(255, 255, 255, 0.08);
+    --project-role-text: #ffffff;
+    --project-logo-bg: #111;
+    --project-logo-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.7);
+
+    /** Slider **/
+
+    --slider-tab-text: rgba(161, 162, 163, 0.9);
+    --slider-tab-text-hover: var(--color-text-primary);
+    --slider-tabs-border: rgba(255, 255, 255, 0.08);
+    --slider-views-border: rgba(255, 255, 255, 0.08);
 }

@@ -47,10 +47,10 @@ export default async function RootLayout({
           {`
             try {
               const saved = localStorage.getItem('theme');
-              const theme = saved || 'dark';
+              const theme = saved || 'light';
               document.documentElement.setAttribute('data-theme', theme);
             } catch (e) {
-              document.documentElement.setAttribute('data-theme', 'dark');
+              document.documentElement.setAttribute('data-theme', 'light');
             }
           `}
         </Script>

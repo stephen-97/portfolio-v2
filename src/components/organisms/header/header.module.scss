@@ -16,12 +16,12 @@
 }
 
 .scrolled {
-  background: rgba(21, 22, 26, 0.7);
+  background: var(--header-scrolled-bg);
   backdrop-filter: blur(4px);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  border-bottom: 1px solid var(--header-border);
   box-shadow:
-          0 4px 6px -1px rgba(0, 0, 0, 0.25),
-          0 2px 4px -1px rgba(0, 0, 0, 0.15);
+          0 4px 6px -1px var(--header-shadow-1),
+          0 2px 4px -1px var(--header-shadow-2);
 }
 
 .inner {
@@ -38,10 +38,6 @@
   display: flex;
   align-items: center;
 }
-
-/* ========================= */
-/* DESKTOP NAV */
-/* ========================= */
 
 .navDesktop {
   display: none;
@@ -89,11 +85,11 @@
   opacity: 1;
   visibility: visible;
 
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  border-bottom: 1px solid var(--mobile-menu-border);
 
   box-shadow:
-          0 4px 6px -1px rgba(0, 0, 0, 0.25),
-          0 8px 20px -4px rgba(0, 0, 0, 0.35);
+          0 4px 6px -1px var(--mobile-menu-shadow-1),
+          0 8px 20px -4px var(--mobile-menu-shadow-2);
 }
 
 .mobileMenu nav ul {
