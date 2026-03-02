@@ -7,6 +7,7 @@ import Layout from '@/src/components/atoms/layout/layout';
 import cn from 'classnames';
 import HamburgerButton from '@/src/components/atoms/hamburgerButton/hamburgerButton';
 import { Link_strapi } from '@/src/lib/api-types/strapi-types';
+import ButtonThemeToggle from '@/src/components/atoms/buttonThemeToggle/buttonThemeToggle';
 
 type HeaderProps = {
   quickLinks: Link_strapi[];
@@ -35,6 +36,7 @@ export const Header = ({ quickLinks }: HeaderProps) => {
       >
         <div className={styles.left}></div>
 
+        <ButtonThemeToggle className={styles.buttonThemeToggle} />
         <nav
           id="main-navigation"
           className={styles.navDesktop}
@@ -42,7 +44,7 @@ export const Header = ({ quickLinks }: HeaderProps) => {
         >
           <ul>
             {quickLinks?.map((link) => (
-              <li key={link.id}>
+              <li className={styles.item} key={link.id}>
                 <LinkHeader href={link.href}>{link.title}</LinkHeader>
               </li>
             ))}

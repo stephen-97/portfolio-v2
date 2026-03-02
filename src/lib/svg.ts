@@ -9,3 +9,5 @@ export { default as BookSVG } from '../../public/book.svg';
 export { default as MagnifyingGlassSVG } from '../../public/magnifyingGlass.svg';
 export { default as PlusCircleSVG } from '../../public/plus-circle.svg';
 export { default as TeamSVG } from '../../public/team.svg';
+export { default as SunSVG } from '../../public/sun.svg';
+export { default as MoonSVG } from '../../public/moon.svg';

@@ -147,6 +147,12 @@
     --slider-tab-text-hover: var(--color-text-primary);
     --slider-tabs-border: rgba(0, 0, 0, 0.12);
     --slider-views-border: rgba(0, 0, 0, 0.12);
+
+    /* Toggle */
+
+    --toggle-track-bg: var(--color-bg-secondary);
+    --toggle-thumb-bg: var(--color-text-primary);
+    --toggle-icon-color: var(--color-bg-primary);
 }
 
 /* ========================
@@ -248,4 +254,10 @@
     --slider-tab-text-hover: var(--color-text-primary);
     --slider-tabs-border: rgba(255, 255, 255, 0.08);
     --slider-views-border: rgba(255, 255, 255, 0.08);
+
+    /* Toggle */
+
+    --toggle-track-bg: var(--color-bg-secondary);
+    --toggle-thumb-bg: var(--color-text-primary);
+    --toggle-icon-color: var(--color-bg-primary);
 }

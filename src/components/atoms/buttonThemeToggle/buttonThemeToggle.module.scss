@@ -1,0 +1,49 @@
+.toggle {
+  position: relative;
+  width: 3.5rem;
+  height: 1.75rem;
+  border-radius: 20rem;
+  border: 1px solid var(--link-border);
+  cursor: pointer;
+  padding: 0;
+  background: transparent;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.track {
+  position: absolute;
+  inset: 0;
+  border-radius: 20rem;
+  background: var(--toggle-track-bg);
+  transition: background 300ms ease;
+}
+
+.thumb {
+  position: absolute;
+  width: 1.25rem;
+  height: 1.25rem;
+  border-radius: 50%;
+  background: var(--toggle-thumb-bg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  top: 50%;
+  left: 0.25rem;
+  transform: translateY(-50%);
+
+  transition:
+          left 350ms cubic-bezier(.4, 0, .2, 1),
+          background 300ms ease;
+}
+
+.dark .thumb {
+  left: calc(100% - 0.25rem - 1.25rem);
+}
+
+.icon {
+  width: 1rem;
+  height: 1rem;
+}
