@@ -1,8 +1,15 @@
 .projects {
   position: relative;
   width: 100%;
-  background: var(--projects-bg);
   overflow: hidden;
+
+  background: linear-gradient(
+                  to bottom,
+                  rgba(var(--color-neutral-rgb), 0.04),
+                  transparent 40%,
+                  transparent 60%,
+                  rgba(var(--color-neutral-rgb), 0.06)
+  );
 
   &::before {
     content: '';
@@ -11,7 +18,24 @@
     z-index: 0;
     pointer-events: none;
 
-    background: var(--projects-overlay);
+    background-image:
+            repeating-linear-gradient(
+                            to right,
+                            transparent 0,
+                            transparent 59px,
+                            rgba(var(--color-neutral-rgb), 0.06) 59px,
+                            rgba(var(--color-neutral-rgb), 0.06) 60px
+            ),
+
+            repeating-linear-gradient(
+                            to bottom,
+                            transparent 0,
+                            transparent 59px,
+                            rgba(var(--color-neutral-rgb), 0.06) 59px,
+                            rgba(var(--color-neutral-rgb), 0.06) 60px
+            );
+
+    background-size: 60px 60px;
   }
 
   .wrapper {

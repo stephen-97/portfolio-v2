@@ -6,6 +6,8 @@ import Layout from '@/src/components/atoms/layout/layout';
 import Title from '@/src/components/atoms/title/title';
 import { AboutMeSection_strapi } from '@/src/lib/api-types/home-page';
 import { BlocksRenderer } from '@strapi/blocks-react-renderer';
+import BackgroundAnimatedShapes from '@/src/components/atoms/backgrounds/backgroundAnimatedShapes/backgroundAnimatedShapes';
+import FloatingShapesBackground from '@/src/components/atoms/backgrounds/floatingShapesBackground/floatingShapesBackground';
 
 export type SectionProps = {
   id?: string;
@@ -18,7 +20,12 @@ type AboutMeProps = SectionProps & {
 const AboutMe = ({ id, aboutMe }: AboutMeProps) => {
   const { sectionTitle, description } = aboutMe;
   return (
-    <Layout id={id} className={styles.hero} innerClassName={styles.inner}>
+    <Layout
+      id={id}
+      className={styles.hero}
+      innerClassName={styles.inner}
+      backgroundChildren={<FloatingShapesBackground />}
+    >
       <Title index={'01'}>{sectionTitle.title}</Title>
 
       <BlocksRenderer
