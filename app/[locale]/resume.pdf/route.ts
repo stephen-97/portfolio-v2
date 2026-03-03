@@ -4,7 +4,10 @@ import { AppLocale } from '@/app/[locale]/layout';
 
 export const runtime = 'nodejs';
 
-export async function GET({ params }: { params: { locale: AppLocale } }) {
+export async function GET(
+  request: NextRequest,
+  { params }: { params: { locale: AppLocale } },
+) {
   const { locale } = await params;
 
   try {

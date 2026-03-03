@@ -23,7 +23,6 @@ const Home = async ({ params }: HomeProps) => {
 
   const navigation = await getNavigation(strapiLocale);
   const homePage = await getHomePage(strapiLocale);
-  const resume = await getResume(strapiLocale);
 
   const quickLinks = navigation.links;
   const socialMediaLinks = navigation.mediaLinks;
@@ -33,7 +32,11 @@ const Home = async ({ params }: HomeProps) => {
       <Header quickLinks={quickLinks} />
       <CursorHalo />
       <main className={styles.main}>
-        <HomeContent homePage={homePage} quickLinks={quickLinks} />
+        <HomeContent
+          homePage={homePage}
+          quickLinks={quickLinks}
+          locale={locale}
+        />
       </main>
       <Footer quickLinks={quickLinks} socialMediaLinks={socialMediaLinks} />
     </>

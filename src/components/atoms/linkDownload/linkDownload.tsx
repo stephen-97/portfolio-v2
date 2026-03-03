@@ -4,13 +4,14 @@ import cn from 'classnames';
 type DownloadButtonProps = {
   href: string;
   className?: string;
+  title: string;
 };
 
-const LinkDownload = ({ href, className }: DownloadButtonProps) => {
+const LinkDownload = ({ href, className, title }: DownloadButtonProps) => {
   return (
     <span className={cn(styles.wrapper, className)}>
-      <a href={href} download className={styles.button}>
-        <span className={styles.label}>Download CV</span>
+      <a href={href} className={styles.button}>
+        <span className={styles.label}>{title}</span>
       </a>
     </span>
   );

@@ -15,5 +15,10 @@
       "theme-title": "Theme",
       "nav-description": "Main navigation"
     }
+  },
+  "page-content": {
+    "hero": {
+      "resume-link-label": "Resume"
+    }
   }
 }

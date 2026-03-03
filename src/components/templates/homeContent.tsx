@@ -7,12 +7,14 @@ import Works from '@/src/components/organisms/works/works';
 import { HomePage_strapi } from '@/src/lib/api-types/home-page';
 import { Link_strapi } from '@/src/lib/api-types/strapi-types';
 import { ReactNode } from 'react';
+import { AppLocale } from '@/app/[locale]/layout';
 
 type SectionId = 'about' | 'skills' | 'projects' | 'works';
 
 type HomeContentProps = {
   homePage: HomePage_strapi;
   quickLinks: Link_strapi[];
+  locale: AppLocale;
 };
 
 const SECTION_COMPONENTS: Record<
@@ -29,11 +31,11 @@ const SECTION_COMPONENTS: Record<
   works: (homePage, id) => <Works id={id} works={homePage.worksSection} />,
 };
 
-const HomeContent = ({ homePage, quickLinks }: HomeContentProps) => {
+const HomeContent = ({ homePage, quickLinks, locale }: HomeContentProps) => {
   debugger;
   return (
     <>
-      <Hero heroData={homePage.heroSection} />
+      <Hero locale={locale} heroData={homePage.heroSection} />
 
       {quickLinks.map((link) => {
         const sectionId = link.href.replace('#', '') as SectionId;

@@ -15,5 +15,10 @@
       "theme-title": "Thème",
       "nav-description": "Navigation principale"
     }
+  },
+  "page-content": {
+    "hero": {
+      "resume-link-label": "Curriculum Vitae"
+    }
   }
 }

@@ -64,7 +64,6 @@ export function mapLocaleToStrapi(locale: AppLocale): StrapiLocale {
 }
 
 export async function getResume(locale: StrapiLocale) {
-  console.log('test', locale);
   const res = await fetch(
     `${STRAPI_URL}/api/resume?locale=${locale}&populate=*`,
     {
