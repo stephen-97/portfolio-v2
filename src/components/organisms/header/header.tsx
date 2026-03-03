@@ -8,6 +8,8 @@ import cn from 'classnames';
 import HamburgerButton from '@/src/components/atoms/hamburgerButton/hamburgerButton';
 import { Link_strapi } from '@/src/lib/api-types/strapi-types';
 import ButtonThemeToggle from '@/src/components/atoms/buttonThemeToggle/buttonThemeToggle';
+import ChooseLanguage from '@/src/components/atoms/chooseLanguage/chooseLanguage';
+import MobileMenu from '@/src/components/molecules/mobileMenu/mobileMenu';
 
 type HeaderProps = {
   quickLinks: Link_strapi[];
@@ -30,18 +32,23 @@ export const Header = ({ quickLinks }: HeaderProps) => {
     <>
       <Layout
         as="header"
+        role="banner"
         className={cn(styles.header, { [styles.scrolled]: scrolled })}
         innerClassName={styles.inner}
         mainPage={false}
       >
-        <div className={styles.left}></div>
-
+        <ChooseLanguage className={styles.chooseLanguage} />
         <ButtonThemeToggle className={styles.buttonThemeToggle} />
+
         <nav
           id="main-navigation"
           className={styles.navDesktop}
-          aria-label="Navigation principale"
+          aria-labelledby="principal-nav"
         >
+          <span className="sr-only" id="principal-nav">
+            Navigation principale
+          </span>
+
           <ul>
             {quickLinks?.map((link) => (
               <li className={styles.item} key={link.id}>
@@ -50,31 +57,15 @@ export const Header = ({ quickLinks }: HeaderProps) => {
             ))}
           </ul>
         </nav>
-
-        <HamburgerButton
-          className={styles.hamburgerButton}
-          openStateHandler={{ state: isOpen, set: setIsOpen }}
-          onToggle={setIsOpen}
-        />
-
-        <div className={styles.right}></div>
       </Layout>
 
-      <div
-        className={cn(styles.mobileMenu, { [styles.open]: isOpen })}
-        aria-hidden={!isOpen}
-        role="menu"
-      >
-        <nav aria-label="Navigation mobile">
-          <ul>
-            {quickLinks?.map((link) => (
-              <li key={`mobile-${link.id}`}>
-                <LinkHeader href={link.href}>{link.title}</LinkHeader>
-              </li>
-            ))}
-          </ul>
-        </nav>
-      </div>
+      <HamburgerButton
+        className={styles.hamburgerButton}
+        openStateHandler={{ state: isOpen, set: setIsOpen }}
+        onToggle={setIsOpen}
+      />
+
+      <MobileMenu isOpen={isOpen} links={quickLinks} />
     </>
   );
 };

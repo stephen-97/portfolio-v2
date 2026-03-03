@@ -8,6 +8,12 @@
     "menu-button": {
       "open": "Le menu de navigation latérale est ouvert",
       "close": "Le menu de navigation latérale est fermé"
+    },
+    "side-menu": {
+      "quickLinks-title": "Liens rapides",
+      "language-title": "Langages",
+      "theme-title": "Thème",
+      "nav-description": "Navigation principale"
     }
   }
 }

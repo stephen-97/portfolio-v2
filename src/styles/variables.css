@@ -153,6 +153,11 @@
     --toggle-track-bg: var(--color-bg-secondary);
     --toggle-thumb-bg: var(--color-text-primary);
     --toggle-icon-color: var(--color-bg-primary);
+
+    /* Layout */
+    --box-shadow-layout:
+            0 4px 6px -1px var(--header-shadow-1),
+            0 2px 4px -1px var(--header-shadow-2);
 }
 
 /* ========================
@@ -260,4 +265,9 @@
     --toggle-track-bg: var(--color-bg-secondary);
     --toggle-thumb-bg: var(--color-text-primary);
     --toggle-icon-color: var(--color-bg-primary);
+
+    /* Layout */
+    --box-shadow-layout:
+            0 4px 6px -1px var(--header-shadow-1),
+            0 2px 4px -1px var(--header-shadow-2);
 }

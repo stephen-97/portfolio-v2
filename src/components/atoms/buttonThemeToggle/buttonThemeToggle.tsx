@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect, useState, memo } from 'react';
 import styles from './buttonThemeToggle.module.scss';
 import cn from 'classnames';
 import { SunSVG, MoonSVG } from '@/src/lib/svg';
@@ -9,26 +9,34 @@ type ButtonThemeToggleProps = {
   className?: string;
 };
 
+type Theme = 'light' | 'dark';
+
 const ButtonThemeToggle = ({ className }: ButtonThemeToggleProps) => {
-  const [theme, setTheme] = useState<'light' | 'dark'>('light');
+  const [theme, setTheme] = useState<Theme>('light');
+  const [mounted, setMounted] = useState(false);
 
-  // On lit juste l'état déjà appliqué par le Script
   useEffect(() => {
-    const current =
-      (document.documentElement.getAttribute('data-theme') as
-        | 'light'
-        | 'dark') || 'light';
+    const attr = document.documentElement.getAttribute('data-theme');
 
-    setTheme(current);
+    if (attr === 'dark' || attr === 'light') {
+      setTheme(attr);
+    }
+
+    setMounted(true);
   }, []);
 
-  const toggleTheme = () => {
-    const next = theme === 'light' ? 'dark' : 'light';
-
+  const applyTheme = (next: Theme) => {
     document.documentElement.setAttribute('data-theme', next);
     localStorage.setItem('theme', next);
+    document.cookie = `theme=${next}; Path=/; Max-Age=31536000; SameSite=Lax`;
     setTheme(next);
   };
+
+  const toggleTheme = () => {
+    applyTheme(theme === 'light' ? 'dark' : 'light');
+  };
+
+  if (!mounted) return null;
 
   return (
     <button
@@ -47,4 +55,4 @@ const ButtonThemeToggle = ({ className }: ButtonThemeToggleProps) => {
   );
 };
 
-export default ButtonThemeToggle;
+export default memo(ButtonThemeToggle);

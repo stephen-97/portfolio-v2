@@ -19,6 +19,7 @@ const Footer = ({ quickLinks, socialMediaLinks }: FooterProps) => {
   return (
     <Layout
       as="footer"
+      role="contentinfo"
       variant="lg"
       mainPage={false}
       className={styles.footer}

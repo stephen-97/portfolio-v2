@@ -8,6 +8,12 @@
     "menu-button": {
       "open": "The side menu is open",
       "close": "The side menu is close"
+    },
+    "side-menu": {
+      "quickLinks-title": "Quick Links",
+      "language-title": "Languages",
+      "theme-title": "Theme",
+      "nav-description": "Main navigation"
     }
   }
 }

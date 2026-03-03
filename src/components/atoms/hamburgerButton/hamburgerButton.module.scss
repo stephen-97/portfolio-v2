@@ -1,5 +1,8 @@
 .button {
-  position: relative;
+  position: fixed;
+  right: 1rem;
+  top: calc((var(--header-height) - 1.5rem) / 2);
+  z-index: 200;
   width: 1.5rem;
   height: 1.5rem;
   padding: 0;
