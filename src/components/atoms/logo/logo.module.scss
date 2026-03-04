@@ -2,9 +2,21 @@
   display: flex;
   align-items: center;
   height: 100%;
+
   color: var(--color-text-primary);
+
   svg {
-    height: auto;
     width: 7rem;
+    height: auto;
+
+    transition: color 0.3s ease, transform 0.3s ease;
+  }
+
+  &:hover {
+    color: #9ca3af;
+
+    svg {
+      transform: scale(1.03);
+    }
   }
 }

@@ -1,10 +1,8 @@
-'use client';
-
 import React from 'react';
 import styles from './skills.module.scss';
 import Layout from '@/src/components/atoms/layout/layout';
 import BackgroundBlocks from '@/src/components/atoms/backgrounds/backgroundBlocks/backgroundBlocks';
-import { SkillsGraphSVG2 } from '@/src/lib/svg';
+import { BackgroundBlocksSVG, SkillsGraphSVG2 } from '@/src/lib/svg';
 import Title from '@/src/components/atoms/title/title';
 import { SectionProps } from 'react-html-props';
 import { SkillsSection_strapi } from '@/src/lib/api-types/home-page';
@@ -27,8 +25,9 @@ const Services = ({ id, skills }: SkillsProps) => {
   return (
     <Layout
       variant="sm"
-      backgroundChildren={<BackgroundBlocks />}
+      backgroundChildren={<BackgroundBlocksSVG />}
       className={styles.service}
+      innerClassName={styles.inner}
       id={id}
     >
       <Title index="02">{sectionTitle.title}</Title>

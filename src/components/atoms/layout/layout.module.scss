@@ -22,7 +22,10 @@
   }
   &.mainPage {
     .layoutChildren {
-      padding-block: 6rem;
+      padding-block: 3rem;
+      @include mq-up($sm) {
+        padding-block: 6rem;
+      }
     }
   }
 }

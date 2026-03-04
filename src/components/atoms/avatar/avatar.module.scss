@@ -7,8 +7,6 @@
   aspect-ratio: 1 / 1;
 }
 
-/* svg derrière */
-
 .rays {
   position: absolute;
 
@@ -21,10 +19,8 @@
 
   z-index: 0;
 
-  color: #2563eb; /* si le svg utilise currentColor */
+  color: #2563eb;
 }
-
-/* cercle avec image */
 
 .circle {
   position: relative;

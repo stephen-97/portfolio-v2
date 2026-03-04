@@ -14,3 +14,5 @@ export { default as MoonSVG } from '../../public/moon.svg';
 export { default as DottedSVG } from '../../public/dotted.svg';
 export { default as RaySun } from '../../public/raySun.svg';
 export { default as LogoSVG } from '../../public/logo.svg';
+export { default as BackgroundBlocksSVG } from '../../public/backgroundBlock.svg';
+export { default as MailSVG } from '../../public/mail.svg';

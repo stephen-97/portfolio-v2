@@ -16,7 +16,12 @@
 }
 
 .logo {
-  margin-right: 2rem;
+  margin-right: auto;
+  position: relative;
+  overflow: hidden;
+  @include mq-up($sm) {
+    margin-right: 2rem;
+  }
 }
 
 .chooseLanguage {

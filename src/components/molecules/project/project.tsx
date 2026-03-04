@@ -1,5 +1,3 @@
-'use client';
-
 import React from 'react';
 import styles from './project.module.scss';
 import Tag from '@/src/components/atoms/tag/tag';
@@ -12,6 +10,7 @@ type ProjectProps = ProjectBlock_strapi;
 const Project = ({ title, description, skills, links }: ProjectProps) => {
   const hasLinks = links?.length > 0;
 
+  console.log('links', links);
   return (
     <article className={styles.card}>
       <div className={styles.content}>

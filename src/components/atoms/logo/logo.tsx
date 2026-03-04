@@ -12,6 +12,7 @@ export default function Logo({ className }: LogoProps) {
       href={'/'}
       aria-label={'Link to the main page'}
     >
+      <span className={styles.logoMask} aria-hidden="true" />
       <LogoSVG />
     </a>
   );

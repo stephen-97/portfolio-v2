@@ -10,6 +10,7 @@ import {
   BookSVG,
   PlusCircleSVG,
   TeamSVG,
+  MailSVG,
 } from '@/src/lib/svg';
 import styles from './icon.module.scss';
 
@@ -22,7 +23,8 @@ export type IconName =
   | 'background'
   | 'code'
   | 'plus'
-  | 'team';
+  | 'team'
+  | 'mail';
 
 type IconProps = {
   name: string;
@@ -41,6 +43,7 @@ const ICON_MAP: Record<IconName, IconComponent> = {
   code: CodeSVG,
   plus: PlusCircleSVG,
   team: TeamSVG,
+  mail: MailSVG,
 };
 
 const Icon = ({ name, className }: IconProps) => {

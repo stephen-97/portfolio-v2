@@ -5,7 +5,26 @@
 .service {
   min-height: calc(100dvh - var(--header-height));
   align-items: start;
+  overflow: hidden;
+  > svg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: translateX(-50%);
+    width: 200%;
+    height: auto;
+    max-height: 100%;
+    pointer-events: none;
+    display: block;
+    overflow: hidden;
+    @include mq-up($sm) {
+      width: 50%;
+      max-width: 50rem;
+      transform: translateX(0);
+    }
+  }
 }
+
 
 .heading {
   text-align: center;

@@ -22,6 +22,10 @@ body,
 }
 
 
+.blocks {
+  filter: var(--block--blcoks-bg-shadow);
+}
+
 h1,
 h2,
 h3,

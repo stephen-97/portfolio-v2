@@ -21,14 +21,12 @@
   svg, path {
     width: 1.25rem;
     height: 1.25rem;
-    fill: currentColor;
   }
 
   &.npm {
     svg, path {
       width: 2rem;
       height: auto;
-      fill: currentColor;
     }
   }
 }

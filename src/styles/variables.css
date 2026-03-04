@@ -158,6 +158,9 @@
     --box-shadow-layout:
             0 4px 6px -1px var(--header-shadow-1),
             0 2px 4px -1px var(--header-shadow-2);
+
+    /** Block background SVG **/
+    --block--blcoks-bg-shadow: 0 8px 20px rgba(0,0,0,0.08);
 }
 
 /* ========================
@@ -270,4 +273,7 @@
     --box-shadow-layout:
             0 4px 6px -1px var(--header-shadow-1),
             0 2px 4px -1px var(--header-shadow-2);
+
+    /** Block background SVG **/
+    --block--blcoks-bg-shadow: 0 8px 24px rgba(0,0,0,0.45);
 }
