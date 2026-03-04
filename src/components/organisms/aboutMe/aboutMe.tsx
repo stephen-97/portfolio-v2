@@ -1,12 +1,9 @@
-'use client';
-
 import React from 'react';
 import styles from './aboutMe.module.scss';
 import Layout from '@/src/components/atoms/layout/layout';
 import Title from '@/src/components/atoms/title/title';
 import { AboutMeSection_strapi } from '@/src/lib/api-types/home-page';
 import { BlocksRenderer } from '@strapi/blocks-react-renderer';
-import BackgroundAnimatedShapes from '@/src/components/atoms/backgrounds/backgroundAnimatedShapes/backgroundAnimatedShapes';
 import FloatingShapesBackground from '@/src/components/atoms/backgrounds/floatingShapesBackground/floatingShapesBackground';
 
 export type SectionProps = {

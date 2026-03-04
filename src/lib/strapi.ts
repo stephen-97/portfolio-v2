@@ -31,11 +31,14 @@ export async function getHomePage(locale: StrapiLocale) {
     `${STRAPI_URL}/api/home-page?locale=${locale}&` +
       `populate[heroSection][populate][statistic]=*&` +
       `populate[aboutMeSection][populate][sectionTitle]=*&` +
+      `populate[skillsSection][populate][sectionTitle]=*&` +
       `populate[skillsSection][populate][skillsBlock][populate][skill]=*&` +
       `populate[skillsSection][populate][skillsBlock][populate][icon_skill]=*&` +
-      `populate[projectsSection][populate][projectBlock][populate][skills]=*&` + // ← remis
+      `populate[projectsSection][populate][sectionTitle]=*&` +
+      `populate[projectsSection][populate][projectBlock][populate][skills]=*&` +
       `populate[projectsSection][populate][projectBlock][populate][links][populate][icon]=*&` +
-      `populate[worksSection][populate][workBlock][populate]=*&`,
+      `populate[worksSection][populate][sectionTitle]=*&` +
+      `populate[worksSection][populate][workBlock][populate]=*`,
     {
       headers: {
         Authorization: `Bearer ${STRAPI_TOKEN}`,

@@ -11,11 +11,11 @@ type ProjectsProps = SectionProps & {
 };
 
 const Projects = ({ id, projects }: ProjectsProps) => {
-  const { projectBlock } = projects;
+  const { projectBlock, sectionTitle } = projects;
 
   return (
     <Layout className={styles.projects} innerClassName={styles.inner} id={id}>
-      <Title index={'02'}>Solo projects</Title>
+      <Title index={'02'}>{sectionTitle.title}</Title>
       <ul className={styles.wrapper}>
         {projectBlock.map((project) => (
           <li key={project.title} className={styles.item}>

@@ -14,6 +14,12 @@
       max-width: var(--container-sm);
     }
   }
+
+  &.xl {
+    .layoutChildren {
+      max-width: var(--container-xl)
+    }
+  }
   &.mainPage {
     .layoutChildren {
       padding-block: 6rem;

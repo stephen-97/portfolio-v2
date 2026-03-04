@@ -6,7 +6,7 @@ export type LayoutProps = React.HTMLAttributes<HTMLElement> & {
   as?: keyof HTMLElementTagNameMap;
   innerClassName?: string;
   backgroundChildren?: React.ReactNode;
-  variant?: 'xs' | 'sm' | 'md' | 'lg';
+  variant?: 'xs' | 'sm' | 'md' | 'lg' | 'xl';
   mainPage?: boolean;
 };
 

@@ -16,7 +16,7 @@ type SkillsProps = SectionProps & {
 };
 
 const Services = ({ id, skills }: SkillsProps) => {
-  const { skillsBlock } = skills;
+  const { skillsBlock, sectionTitle } = skills;
 
   if (!skillsBlock?.length) return null;
 
@@ -31,7 +31,7 @@ const Services = ({ id, skills }: SkillsProps) => {
       className={styles.service}
       id={id}
     >
-      <Title index="02">Skills</Title>
+      <Title index="02">{sectionTitle.title}</Title>
 
       <div className={styles.grid}>
         <div className={styles.left}>

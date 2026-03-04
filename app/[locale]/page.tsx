@@ -30,7 +30,6 @@ const Home = async ({ params }: HomeProps) => {
   return (
     <>
       <Header quickLinks={quickLinks} />
-      <CursorHalo />
       <main className={styles.main}>
         <HomeContent
           homePage={homePage}

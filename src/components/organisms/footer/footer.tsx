@@ -28,10 +28,7 @@ const Footer = ({ quickLinks, socialMediaLinks }: FooterProps) => {
       <div className={styles.top}>
         <div className={styles.col}>
           <h3 className={styles.heading}>{t('portfolio-title')}</h3>
-          <p className={styles.copy}>
-            Designed and developed with Next.js and powered by Strapi as a
-            headless CMS
-          </p>
+          <p className={styles.copy}>{t('portfolio-description')}</p>
         </div>
 
         <div className={styles.col}>
@@ -70,7 +67,7 @@ const Footer = ({ quickLinks, socialMediaLinks }: FooterProps) => {
       <div className={styles.separator} />
 
       <div className={styles.bottom}>
-        © {new Date().getFullYear()} Stephen Loiola Bastos. All rights reserved.
+        © {new Date().getFullYear()} {t('copyrights')}
       </div>
     </Layout>
   );

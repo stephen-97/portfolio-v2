@@ -11,6 +11,8 @@ type WorksProps = SectionProps & {
   works: WorksSection_strapi;
 };
 const Works = ({ id, works }: WorksProps) => {
+  const { sectionTitle } = works;
+
   const itemsForSlider: ItemSliderProps[] = works.workBlock.map((work) => ({
     title: work.agency,
     date: work.date,
@@ -19,7 +21,7 @@ const Works = ({ id, works }: WorksProps) => {
 
   return (
     <Layout id={id} variant="xs">
-      <Title index="04">Where I worked</Title>
+      <Title index="04">{sectionTitle.title}</Title>
       <ContentSlider duration={450} items={itemsForSlider} />
     </Layout>
   );

@@ -2,9 +2,14 @@
   "footer": {
     "quickLinks-title": "Quick Links",
     "socialMedia-title": "Connect",
-    "portfolio-title": "Portfolio"
+    "portfolio-title": "Portfolio",
+    "copyrights": "Stephen Loiola Bastos. All rights reserved.",
+    "portfolio-description": "Designed and developed with Next.js and powered by Strapi as a headless CMS"
   },
   "header": {
+    "main-nav": {
+      "nav-description": "Main navigation"
+    },
     "menu-button": {
       "open": "The side menu is open",
       "close": "The side menu is close"

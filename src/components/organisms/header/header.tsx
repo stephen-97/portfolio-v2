@@ -10,12 +10,16 @@ import { Link_strapi } from '@/src/lib/api-types/strapi-types';
 import ButtonThemeToggle from '@/src/components/atoms/buttonThemeToggle/buttonThemeToggle';
 import ChooseLanguage from '@/src/components/atoms/chooseLanguage/chooseLanguage';
 import MobileMenu from '@/src/components/molecules/mobileMenu/mobileMenu';
+import { useTranslations } from 'next-intl';
+import Logo from '@/src/components/atoms/logo/logo';
 
 type HeaderProps = {
   quickLinks: Link_strapi[];
 };
 
 export const Header = ({ quickLinks }: HeaderProps) => {
+  const t = useTranslations('header');
+
   const [scrolled, setScrolled] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
 
@@ -33,10 +37,12 @@ export const Header = ({ quickLinks }: HeaderProps) => {
       <Layout
         as="header"
         role="banner"
+        variant={'xl'}
         className={cn(styles.header, { [styles.scrolled]: scrolled })}
         innerClassName={styles.inner}
         mainPage={false}
       >
+        <Logo className={styles.logo} />
         <ChooseLanguage className={styles.chooseLanguage} />
         <ButtonThemeToggle className={styles.buttonThemeToggle} />
 
@@ -46,7 +52,7 @@ export const Header = ({ quickLinks }: HeaderProps) => {
           aria-labelledby="principal-nav"
         >
           <span className="sr-only" id="principal-nav">
-            Navigation principale
+            {t('main-nav.nav-description')}
           </span>
 
           <ul>

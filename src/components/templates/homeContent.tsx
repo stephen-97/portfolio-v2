@@ -1,3 +1,5 @@
+'use client';
+
 import React from 'react';
 import Hero from '@/src/components/organisms/hero/hero';
 import Skills from '@/src/components/organisms/skills/skills';
@@ -32,7 +34,7 @@ const SECTION_COMPONENTS: Record<
 };
 
 const HomeContent = ({ homePage, quickLinks, locale }: HomeContentProps) => {
-  debugger;
+  console.log('homePage', homePage);
   return (
     <>
       <Hero locale={locale} heroData={homePage.heroSection} />

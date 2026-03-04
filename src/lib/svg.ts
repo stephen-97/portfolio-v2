@@ -12,3 +12,5 @@ export { default as TeamSVG } from '../../public/team.svg';
 export { default as SunSVG } from '../../public/sun.svg';
 export { default as MoonSVG } from '../../public/moon.svg';
 export { default as DottedSVG } from '../../public/dotted.svg';
+export { default as RaySun } from '../../public/raySun.svg';
+export { default as LogoSVG } from '../../public/logo.svg';

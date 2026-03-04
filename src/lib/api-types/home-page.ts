@@ -8,6 +8,7 @@ export interface HomePage_strapi {
   createdAt: string;
   updatedAt: string;
   publishedAt: string;
+  locale: string;
 
   heroSection: HeroSection_strapi;
   aboutMeSection: AboutMeSection_strapi;
@@ -32,6 +33,14 @@ export interface Statistic_strapi {
   title: string;
 }
 
+/* ================= SHARED ================= */
+
+export interface SectionTitle_strapi {
+  id: number;
+  title: string;
+  icon: any;
+}
+
 /* ================= ABOUT ME ================= */
 
 export interface AboutMeSection_strapi {
@@ -40,16 +49,11 @@ export interface AboutMeSection_strapi {
   sectionTitle: SectionTitle_strapi;
 }
 
-export interface SectionTitle_strapi {
-  id: number;
-  title: string;
-  icon: any;
-}
-
 /* ================= SKILLS ================= */
 
 export interface SkillsSection_strapi {
   id: number;
+  sectionTitle: SectionTitle_strapi;
   skillsBlock: SkillsBlock_strapi[];
 }
 
@@ -80,6 +84,7 @@ export interface SkillIcon_strapi {
 
 export interface ProjectsSection_strapi {
   id: number;
+  sectionTitle: SectionTitle_strapi;
   projectBlock: ProjectBlock_strapi[];
 }
 
@@ -111,6 +116,7 @@ export interface ProjectIcon_strapi {
 
 export interface WorksSection_strapi {
   id: number;
+  sectionTitle: SectionTitle_strapi;
   workBlock: WorkBlock_strapi[];
 }
 
