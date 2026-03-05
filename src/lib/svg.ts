@@ -16,3 +16,6 @@ export { default as RaySun } from '../../public/raySun.svg';
 export { default as LogoSVG } from '../../public/logo.svg';
 export { default as BackgroundBlocksSVG } from '../../public/backgroundBlock.svg';
 export { default as MailSVG } from '../../public/mail.svg';
+export { default as RocketSVG } from '../../public/rocket.svg';
+export { default as StarSVG } from '../../public/star.svg';
+export { default as BulbSVG } from '../../public/bulb.svg';

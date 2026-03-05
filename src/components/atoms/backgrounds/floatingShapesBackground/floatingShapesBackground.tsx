@@ -1,17 +1,27 @@
-'use client';
-
 import styles from './floatingShapesBackground.module.scss';
 import cn from 'classnames';
+import { RocketSVG, StarSVG, BulbSVG, CodeSVG } from '@/src/lib/svg';
 
 const FloatingShapesBackground = () => {
   return (
-    <div className={styles.background}>
-      <div className={cn(styles.shape, styles.circleLarge)} />
-      <div className={cn(styles.shape, styles.circleSmall)} />
-      <div className={cn(styles.shape, styles.square)} />
-      <div className={cn(styles.shape, styles.squareSmall)} />
-      <div className={cn(styles.shape, styles.circleTiny)} />
-      <div className={cn(styles.glow, styles.glowOne)} />
+    <div className={styles.floatingShapesBackground}>
+      <div className={cn(styles.floatingShape, styles.floatingCircle)} />
+
+      <div className={cn(styles.floatingShape, styles.floatingBulb)}>
+        <BulbSVG />
+      </div>
+
+      <div className={cn(styles.floatingShape, styles.floatingCode)}>
+        <CodeSVG />
+      </div>
+
+      <div className={cn(styles.floatingShape, styles.floatingStar)}>
+        <StarSVG />
+      </div>
+
+      <div className={cn(styles.floatingShape, styles.floatingRocket)}>
+        <RocketSVG />
+      </div>
     </div>
   );
 };

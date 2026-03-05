@@ -161,6 +161,9 @@
 
     /** Block background SVG **/
     --block--blcoks-bg-shadow: 0 8px 20px rgba(0,0,0,0.08);
+
+    /** Floating shapes **/
+    --shapes-color: rgb(15, 67, 122);
 }
 
 /* ========================
@@ -276,4 +279,7 @@
 
     /** Block background SVG **/
     --block--blcoks-bg-shadow: 0 8px 24px rgba(0,0,0,0.45);
+
+    /** Floating shapes **/
+    --shapes-color: rgb(150, 160, 175);
 }

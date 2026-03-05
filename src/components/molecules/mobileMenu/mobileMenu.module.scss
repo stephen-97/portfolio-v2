@@ -91,7 +91,7 @@
 }
 
 @include mq-up($sm) {
-  .mobileMenu {
+  .mobileMenu, .overlay {
     display: none;
   }
 }

@@ -1,4 +1,4 @@
-.background {
+.floatingShapesBackground {
   position: absolute;
   inset: 0;
   pointer-events: none;
@@ -7,112 +7,72 @@
   isolation: isolate;
 }
 
-.shape {
+.floatingShape {
   position: absolute;
-  opacity: 0.08;
+  opacity: 0.14;
   animation: float 14s ease-in-out infinite;
   will-change: transform;
 }
 
-.circleLarge {
-  top: 20%;
-  right: 12%;
-  width: 7rem;
-  aspect-ratio: 1 / 1;
-  border-radius: 50%;
+.floatingShape svg {
+  position: absolute;
+  inset: 0;
+  margin: auto;
 
-  background: linear-gradient(
-                  135deg,
-                  var(--color-text-secondary),
-                  var(--color-text-muted)
-  );
+  width: 55%;
+  height: 55%;
+
+  color: var(--shapes-color);
+
+  pointer-events: none;
 }
 
-.circleSmall {
-  bottom: 24%;
-  left: 14%;
+
+.floatingBulb {
+  bottom: 18%;
+  left: 6%;
   width: 4.5rem;
   aspect-ratio: 1 / 1;
-  border-radius: 50%;
-
-  background: linear-gradient(
-                  135deg,
-                  var(--color-text-muted),
-                  var(--color-text-primary)
-  );
 
   animation-delay: 3s;
 }
 
-.square {
-  top: 58%;
-  left: 30%;
+.floatingBulb svg {
+  width: 80%;
+  height: 80%;
+  color: var(--shapes-color);
+}
+
+.floatingCode {
+  top: 45%;
+  left: 5%;
   width: 4.5rem;
   aspect-ratio: 1 / 1;
-  border-radius: 1rem;
-  background: linear-gradient(
-                  135deg,
-                  var(--color-text-secondary),
-                  var(--color-text-primary)
-  );
 
   transform: rotate(25deg);
   animation-delay: 2s;
 }
 
-.squareSmall {
-  top: 35%;
-  left: 50%;
-  width: 3rem;
-  aspect-ratio: 1 / 1;
-  border-radius: 0.8rem;
-
-  background: linear-gradient(
-                  135deg,
-                  var(--color-text-muted),
-                  var(--color-text-secondary)
-  );
-
-  transform: rotate(35deg);
-  animation-delay: 6s;
+.floatingCode svg {
+  width: 80%;
+  height: 80%;
+  color: var(--shapes-color);
 }
 
-.circleTiny {
-  bottom: 32%;
-  right: 28%;
-  width: 2.5rem;
+.floatingStar {
+  top: 28%;
+  left: 65%;
+  width: 7rem;
+  height: 7rem;
+}
+
+.floatingRocket {
+  bottom: 22%;
+  right: 20%;
   aspect-ratio: 1 / 1;
-  border-radius: 50%;
-
-  background: linear-gradient(
-                  135deg,
-                  var(--color-text-secondary),
-                  var(--color-text-muted)
-  );
-
   animation-delay: 8s;
-}
-
-.glow {
-  position: absolute;
-  border-radius: 50%;
-  filter: blur(50px);
-  opacity: 0.12;
-  animation: breathing 12s ease-in-out infinite;
-  will-change: transform;
-}
-
-.glowOne {
-  top: 15%;
-  left: 42%;
-  width: 8rem;
-  aspect-ratio: 1 / 1;
-
-  background: radial-gradient(
-                  circle,
-                  color-mix(in srgb, var(--color-text-secondary) 30%, transparent),
-                  transparent 70%
-  );
+  height: 10rem;
+  width: 10rem;
 }
 
 @keyframes float {
@@ -130,14 +90,14 @@
 @keyframes breathing {
   0% {
     transform: scale(1);
-    opacity: 0.1;
+    opacity: 0.14;
   }
   50% {
-    transform: scale(1.08);
-    opacity: 0.2;
+    transform: scale(1.1);
+    opacity: 0.28;
   }
   100% {
     transform: scale(1);
-    opacity: 0.1;
+    opacity: 0.14;
   }
 }
