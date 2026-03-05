@@ -10,7 +10,6 @@ type ProjectProps = ProjectBlock_strapi;
 const Project = ({ title, description, skills, links }: ProjectProps) => {
   const hasLinks = links?.length > 0;
 
-  console.log('links', links);
   return (
     <article className={styles.card}>
       <div className={styles.content}>

@@ -34,7 +34,6 @@ const SECTION_COMPONENTS: Record<
 };
 
 const HomeContent = ({ homePage, quickLinks, locale }: HomeContentProps) => {
-  console.log('homePage', homePage);
   return (
     <>
       <Hero locale={locale} heroData={homePage.heroSection} />

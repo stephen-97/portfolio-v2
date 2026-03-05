@@ -51,3 +51,38 @@
     font-size: var(--font-md-lg);
   }
 }
+
+
+.introItem {
+  opacity: 0;
+  transform: translateY(18px);
+  animation: introFadeUp 0.7s ease-in-out forwards;
+}
+
+.introItem:nth-child(1) {
+  animation-delay: 0.1s;
+}
+
+.introItem:nth-child(2) {
+  animation-delay: 0.25s;
+}
+
+.introItem:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+.introItem:nth-child(4) {
+  animation-delay: 0.55s;
+}
+
+@keyframes introFadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

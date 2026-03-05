@@ -1,4 +1,6 @@
-import React from 'react';
+'use client';
+
+import React, { useState } from 'react';
 import styles from './hero.module.scss';
 import Intro from '@/src/components/molecules/intro/intro';
 import IntroPhoto from '@/src/components/molecules/introPhoto/introPhoto';
@@ -11,8 +13,11 @@ type HeroProps = {
   heroData: HeroSection_strapi;
   locale: AppLocale;
 };
+
 const Hero = ({ heroData, locale }: HeroProps) => {
   const { title, description, subtitle, statistic } = heroData;
+
+  const [showPhoto, setShowPhoto] = useState(false);
 
   return (
     <Layout className={styles.hero} innerClassName={styles.inner}>
@@ -23,9 +28,11 @@ const Hero = ({ heroData, locale }: HeroProps) => {
           subtitle={subtitle}
           locale={locale}
         />
-        <IntroPhoto />
+
+        <IntroPhoto visible={showPhoto} />
       </div>
-      <Stats statistics={statistic} />
+
+      <Stats statistics={statistic} onComplete={() => setShowPhoto(true)} />
     </Layout>
   );
 };
