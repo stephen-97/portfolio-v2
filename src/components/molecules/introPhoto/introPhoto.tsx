@@ -1,14 +1,9 @@
 import Image from 'next/image';
 import styles from './introPhoto.module.scss';
-import cn from 'classnames';
 
-type IntroPhotoProps = {
-  visible: boolean;
-};
-
-const IntroPhoto = ({ visible }: IntroPhotoProps) => {
+const IntroPhoto = () => {
   return (
-    <div className={cn(styles.wrapper, { [styles.visible]: visible })}>
+    <div className={styles.wrapper}>
       <Image
         src="/introPhoto.avif"
         alt="Portrait"

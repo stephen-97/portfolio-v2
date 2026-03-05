@@ -1,5 +1,3 @@
-'use client';
-
 import React, { useState } from 'react';
 import styles from './hero.module.scss';
 import Intro from '@/src/components/molecules/intro/intro';
@@ -17,8 +15,6 @@ type HeroProps = {
 const Hero = ({ heroData, locale }: HeroProps) => {
   const { title, description, subtitle, statistic } = heroData;
 
-  const [showPhoto, setShowPhoto] = useState(false);
-
   return (
     <Layout className={styles.hero} innerClassName={styles.inner}>
       <div className={styles.introContainer}>
@@ -29,10 +25,10 @@ const Hero = ({ heroData, locale }: HeroProps) => {
           locale={locale}
         />
 
-        <IntroPhoto visible={showPhoto} />
+        <IntroPhoto />
       </div>
 
-      <Stats statistics={statistic} onComplete={() => setShowPhoto(true)} />
+      <Stats statistics={statistic} />
     </Layout>
   );
 };

@@ -6,13 +6,12 @@
   border: 1px solid var(--project-card-border);
   backdrop-filter: blur(14px);
   color: var(--color-text-primary);
-  box-shadow: var(--project-card-shadow);
-  transition: border-color 0.3s ease,
-  box-shadow 0.3s ease;
+  box-shadow: var(--block-box-shadow);
+  transition: border-color 0.3s ease;
 
   &:hover {
-    box-shadow: var(--project-card-shadow-hover);
-    border-color: var(--project-card-border-hover);
+    box-shadow: var(--block-box-shadow-hover);
+    border-color: var(--block-border-hover);
   }
 }
 
