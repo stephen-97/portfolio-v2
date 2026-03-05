@@ -11,7 +11,7 @@ const Stats = ({ statistics }: StatsProps) => {
       <div className={styles.blurCard}>
         {statistics.map((item) => (
           <div key={item.id} className={styles.item}>
-            <h3 className={styles.value}>{item.value}</h3>
+            <p className={styles.value}>{item.value}</p>
             <p className={styles.label}>{item.title}</p>
           </div>
         ))}

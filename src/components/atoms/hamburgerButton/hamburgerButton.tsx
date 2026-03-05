@@ -12,12 +12,14 @@ type HamburgerButtonProps = {
   className?: string;
   onToggle?: (open: boolean) => void;
   openStateHandler: TStateHandler<boolean>;
+  buttonRef?: React.RefObject<HTMLButtonElement | null>;
 };
 
 const HamburgerButton = ({
   className,
   onToggle,
   openStateHandler,
+  buttonRef,
 }: HamburgerButtonProps) => {
   const t = useTranslations('header.menu-button');
 
@@ -31,21 +33,20 @@ const HamburgerButton = ({
   };
 
   return (
-    <>
-      <button
-        type="button"
-        aria-label={isOpen ? t('open') : t('close')}
-        aria-expanded={isOpen}
-        onClick={handleClick}
-        className={cn(styles.button, className, {
-          [styles.active]: isOpen,
-        })}
-      >
-        <span className={styles.bar} />
-        <span className={styles.bar} />
-        <span className={styles.bar} />
-      </button>
-    </>
+    <button
+      ref={buttonRef}
+      type="button"
+      aria-label={isOpen ? t('open') : t('close')}
+      aria-expanded={isOpen}
+      onClick={handleClick}
+      className={cn(styles.button, className, {
+        [styles.active]: isOpen,
+      })}
+    >
+      <span className={styles.bar} />
+      <span className={styles.bar} />
+      <span className={styles.bar} />
+    </button>
   );
 };
 

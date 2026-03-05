@@ -20,6 +20,9 @@
     transition: transform 400ms cubic-bezier(.4, 0, .2, 1);
   }
 
+  &:hover {
+    color: var(--primary)
+  }
   &:hover::after,
   &:focus-visible::after {
     transform: translateX(0);

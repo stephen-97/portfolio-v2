@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import styles from './header.module.scss';
 import LinkHeader from '@/src/components/atoms/linkHeader';
 import Layout from '@/src/components/atoms/layout/layout';
@@ -23,14 +23,66 @@ export const Header = ({ quickLinks }: HeaderProps) => {
   const [scrolled, setScrolled] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
 
+  const menuRef = useRef<HTMLElement>(null);
+  const hamburgerRef = useRef<HTMLButtonElement>(null);
+
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 10);
     };
 
+    handleScroll();
+
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  useEffect(() => {
+    if (!isOpen) return;
+
+    const menu = menuRef.current;
+    const hamburger = hamburgerRef.current;
+    if (!menu || !hamburger) return;
+
+    const menuFocusable = menu.querySelectorAll<HTMLElement>(
+      'a, button, input, select, textarea, [tabindex]:not([tabindex="-1"])',
+    );
+
+    const focusable = [hamburger, ...Array.from(menuFocusable)];
+
+    if (!focusable.length) return;
+
+    const first = focusable[0];
+    const last = focusable[focusable.length - 1];
+
+    first.focus();
+
+    const handleTab = (e: KeyboardEvent) => {
+      if (e.key !== 'Tab') return;
+
+      if (e.shiftKey) {
+        if (document.activeElement === first) {
+          e.preventDefault();
+          last.focus();
+        }
+      } else {
+        if (document.activeElement === last) {
+          e.preventDefault();
+          first.focus();
+        }
+      }
+    };
+
+    const container = menu;
+    container.addEventListener('keydown', handleTab);
+    hamburger.addEventListener('keydown', handleTab);
+
+    return () => {
+      container.removeEventListener('keydown', handleTab);
+      hamburger.removeEventListener('keydown', handleTab);
+      hamburger.focus();
+    };
+  }, [isOpen]);
 
   return (
     <>
@@ -66,12 +118,18 @@ export const Header = ({ quickLinks }: HeaderProps) => {
       </Layout>
 
       <HamburgerButton
+        buttonRef={hamburgerRef}
         className={styles.hamburgerButton}
         openStateHandler={{ state: isOpen, set: setIsOpen }}
         onToggle={setIsOpen}
       />
 
-      <MobileMenu isOpen={isOpen} links={quickLinks} />
+      <MobileMenu
+        menuRef={menuRef}
+        isOpen={isOpen}
+        links={quickLinks}
+        onClose={() => setIsOpen(false)}
+      />
     </>
   );
 };

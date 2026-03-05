@@ -5,7 +5,7 @@ const IntroPhoto = () => {
   return (
     <div className={styles.wrapper}>
       <Image
-        src="/introPhoto.png"
+        src="/introPhoto.avif"
         alt="Portrait"
         priority
         width={800}
