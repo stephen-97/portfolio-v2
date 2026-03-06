@@ -51,6 +51,45 @@
   line-height: 1.6;
   color: var(--color-text-secondary);
   margin-bottom: 1rem;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+
+  &.canExpand {
+    margin-bottom: 0;
+  }
+
+  &.expanded {
+    -webkit-line-clamp: unset;
+    overflow: visible;
+  }
+}
+
+.seeMore {
+  display: flex;
+  align-items: center;
+  margin-top: .25rem;
+  background: none;
+  border: none;
+  color: var(--color-text-primary);
+  cursor: pointer;
+  font-weight: 700;
+  padding: 0;
+  margin-bottom: 1rem;
+  &:hover {
+    color: var(--color-text-secondary)
+  }
+  &::after {
+    content: '';
+    display: inline-block;
+    width: 0.45rem;
+    height: 0.45rem;
+    border-right: 2px solid currentColor;
+    border-bottom: 2px solid currentColor;
+    transform: rotate(45deg);
+    margin-left: .5rem;
+  }
 }
 
 .stack {

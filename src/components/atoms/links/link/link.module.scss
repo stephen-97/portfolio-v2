@@ -35,9 +35,12 @@
 .link.secondary {
   display: inline-flex;
   align-items: center;
-  text-decoration: underline;
+  text-decoration: none;
   text-underline-offset: .25rem;
-  color: var(--color-text-primary)
+  color: var(--color-text-primary);
+  &:hover {
+    text-decoration: underline;
+  }
 }
 
 .link.secondary[target="_blank"]::after {

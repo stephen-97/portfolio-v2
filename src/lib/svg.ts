@@ -19,3 +19,4 @@ export { default as MailSVG } from '../../public/mail.svg';
 export { default as RocketSVG } from '../../public/rocket.svg';
 export { default as StarSVG } from '../../public/star.svg';
 export { default as BulbSVG } from '../../public/bulb.svg';
+export { default as CogSVG } from '../../public/cog.svg';

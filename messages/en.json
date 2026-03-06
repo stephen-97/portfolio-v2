@@ -25,6 +25,11 @@
   "page-content": {
     "hero": {
       "resume-link-label": "Resume"
+    },
+    "projects": {
+      "project-block": {
+        "see-more-button-title": "See more"
+      }
     }
   }
 }

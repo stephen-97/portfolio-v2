@@ -25,6 +25,11 @@
   "page-content": {
     "hero": {
       "resume-link-label": "Curriculum Vitae"
+    },
+    "projects": {
+      "project-block": {
+        "see-more-button-title": "Voir plus"
+      }
     }
   }
 }
