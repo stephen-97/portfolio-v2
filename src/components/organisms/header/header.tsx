@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from 'react';
 import styles from './header.module.scss';
-import LinkHeader from '@/src/components/atoms/linkHeader';
+import Link from '@/src/components/atoms/links/link/link';
 import Layout from '@/src/components/atoms/layout/layout';
 import cn from 'classnames';
 import HamburgerButton from '@/src/components/atoms/hamburgerButton/hamburgerButton';
@@ -73,28 +73,39 @@ export const Header = ({ quickLinks }: HeaderProps) => {
       }
     };
 
-    const container = menu;
-    container.addEventListener('keydown', handleTab);
+    menu.addEventListener('keydown', handleTab);
     hamburger.addEventListener('keydown', handleTab);
 
     return () => {
-      container.removeEventListener('keydown', handleTab);
+      menu.removeEventListener('keydown', handleTab);
       hamburger.removeEventListener('keydown', handleTab);
       hamburger.focus();
     };
   }, [isOpen]);
+
+  const skipLinks = (
+    <div className={styles.skipLinks}>
+      <div className={styles.slipLinksContent}>
+        <a href={quickLinks?.at?.(0)?.href} className={styles.skipLink}>
+          {t('main-nav.skip-to-content')}
+        </a>
+      </div>
+    </div>
+  );
 
   return (
     <>
       <Layout
         as="header"
         role="banner"
-        variant={'xl'}
+        variant="xl"
         className={cn(styles.header, { [styles.scrolled]: scrolled })}
         innerClassName={styles.inner}
         mainPage={false}
+        backgroundChildren={skipLinks}
       >
         <Logo className={styles.logo} />
+
         <ChooseLanguage className={styles.chooseLanguage} />
         <ButtonThemeToggle className={styles.buttonThemeToggle} />
 
@@ -110,7 +121,7 @@ export const Header = ({ quickLinks }: HeaderProps) => {
           <ul>
             {quickLinks?.map((link) => (
               <li className={styles.item} key={link.id}>
-                <LinkHeader href={link.href}>{link.title}</LinkHeader>
+                <Link href={link.href}>{link.title}</Link>
               </li>
             ))}
           </ul>

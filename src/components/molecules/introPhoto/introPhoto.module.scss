@@ -4,7 +4,7 @@
   justify-content: center;
   align-items: center;
   min-height: 22.5rem;
-  @include mq-up($sm) {
+  @include mq-up($break) {
     min-height: auto;
   }
 }
@@ -18,17 +18,8 @@
   position: absolute;
   inset: 0;
   z-index: 0;
-
   pointer-events: none;
-
-  background: radial-gradient(
-                  ellipse at center,
-                  rgba(255, 255, 255, 0.45) 0%,
-                  rgba(255, 255, 255, 0.25) 25%,
-                  rgba(255, 255, 255, 0.08) 45%,
-                  rgba(255, 255, 255, 0) 70%
-  );
-
+  background: var(--radial-gradiant-intro-photo);
   transform: scale(0.8, 1.1);
   filter: blur(60px);
   opacity: 0.7;
@@ -41,16 +32,13 @@
   height: auto;
   display: block;
   margin-top: 12.5rem;
-  @include mq-up($sm) {
-    max-width: 50rem;
-    margin-top: 25rem;
-  }
-  @include mq-up($sm2) {
+  @include mq-up($break) {
     margin-top: 10rem;
+    max-width: 50rem;
   }
 }
 
-@include mq-up($sm) {
+@include mq-up($break) {
   .frame {
     max-width: 30rem;
   }

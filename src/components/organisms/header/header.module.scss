@@ -1,24 +1,65 @@
 .header {
   display: flex;
+  flex-direction: column;
   position: fixed !important;
   top: 0;
   width: 100%;
-  height: var(--header-height);
   z-index: 50;
-  align-items: center;
   background: transparent;
   border-bottom: 1px solid transparent;
   transition:
-          background-color 0.3s ease,
-          backdrop-filter 0.3s ease,
-          border-color 0.3s ease,
-          box-shadow 0.3s ease;
+          background-color 0.3s ease-in-out,
+          backdrop-filter 0.3s ease-in-out,
+          border-color 0.3s ease-in-out,
+          box-shadow 0.3s ease-in-out;
+}
+
+.skipLinks {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  background: var(--color-bg-inverse-primary);
+  border-bottom: 1px solid var(--color-border);
+  max-height: 0;
+  overflow: visible;
+  transition: max-height .25s ease-in-out;
+}
+
+.slipLinksContent {
+  width: 100%;
+  max-width: var(--container-xl);
+  padding-block: .25rem;
+}
+
+.skipLinks:focus-within {
+  max-height: initial;
+}
+
+.skipLink {
+  display: inline;
+  width: 100%;
+  padding: 0 1rem;
+  margin-bottom: .5rem;
+  font-size: var(--font-sm);
+  color: var(--color-text-inverse-primary);
+  text-decoration: none;
+}
+
+.inner {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 1rem;
+  height: var(--header-height);
 }
 
 .logo {
   margin-right: auto;
   position: relative;
   overflow: hidden;
+
   @include mq-up($sm) {
     margin-right: 2rem;
   }
@@ -32,8 +73,10 @@
   margin-right: auto;
 }
 
-.chooseLanguage, .buttonThemeToggle {
+.chooseLanguage,
+.buttonThemeToggle {
   display: none !important;
+
   @include mq-up($sm) {
     display: inline-flex !important;
   }
@@ -46,19 +89,23 @@
   box-shadow: var(--box-shadow-layout);
 }
 
-.inner {
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  width: 100%;
-  margin: 0 auto;
-  padding: 0 1rem;
-  height: 100%;
+@supports selector(:has(*)) {
+  .header:has(.skipLinks a:focus-visible),
+  .header:has(.skipLinks a:focus) {
+    background: var(--header-scrolled-bg);
+    backdrop-filter: blur(4px);
+    border-bottom: 1px solid var(--header-border);
+    box-shadow: var(--box-shadow-layout);
+  }
 }
 
-.left {
-  display: flex;
-  align-items: center;
+@supports not selector(:has(*)) {
+  .skipLinks:focus-within ~ .inner {
+    background: var(--header-scrolled-bg);
+    backdrop-filter: blur(4px);
+    border-bottom: 1px solid var(--header-border);
+    box-shadow: var(--box-shadow-layout);
+  }
 }
 
 .navDesktop {
@@ -68,6 +115,7 @@
     display: flex;
     flex-direction: row;
     gap: 1.5rem;
+
     list-style: none;
     margin: 0;
     padding: 0;
@@ -81,10 +129,4 @@
   @include mq-up($sm) {
     display: block;
   }
-}
-
-.right {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
 }

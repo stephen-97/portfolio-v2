@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, RefObject } from 'react';
-import LinkHeader from '@/src/components/atoms/linkHeader';
+import Link from '@/src/components/atoms/links/link/link';
 import ChooseLanguage from '@/src/components/atoms/chooseLanguage/chooseLanguage';
 import ButtonThemeToggle from '@/src/components/atoms/buttonThemeToggle/buttonThemeToggle';
 import styles from './mobileMenu.module.scss';
@@ -73,13 +73,13 @@ const MobileMenu = ({ isOpen, links, onClose, menuRef }: MobileMenuProps) => {
               <ul className={styles.list}>
                 {links?.map((link) => (
                   <li key={`mobile-${link.id}`} className={styles.item}>
-                    <LinkHeader
+                    <Link
                       className={styles.link}
                       href={link.href}
                       onClick={onClose}
                     >
                       {link.title}
-                    </LinkHeader>
+                    </Link>
                   </li>
                 ))}
               </ul>

@@ -2,7 +2,7 @@ import React from 'react';
 import styles from './footer.module.scss';
 import Layout from '@/src/components/atoms/layout/layout';
 import LinkIcon from '@/src/components/atoms/linkIcon/linkIcon';
-import LinkHeader from '@/src/components/atoms/linkHeader';
+import Link from '@/src/components/atoms/links/link/link';
 import { useTranslations } from 'next-intl';
 import {
   Link_strapi,
@@ -37,7 +37,7 @@ const Footer = ({ quickLinks, socialMediaLinks }: FooterProps) => {
             <ul>
               {quickLinks?.map((link) => (
                 <li key={link.id}>
-                  <LinkHeader href={link.href}>{link.title}</LinkHeader>
+                  <Link href={link.href}>{link.title}</Link>
                 </li>
               ))}
             </ul>

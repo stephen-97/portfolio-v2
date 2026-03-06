@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import styles from './hero.module.scss';
 import Intro from '@/src/components/molecules/intro/intro';
 import IntroPhoto from '@/src/components/molecules/introPhoto/introPhoto';
@@ -16,7 +16,7 @@ const Hero = ({ heroData, locale }: HeroProps) => {
   const { title, description, subtitle, statistic } = heroData;
 
   return (
-    <Layout className={styles.hero} innerClassName={styles.inner}>
+    <Layout className={styles.hero}>
       <div className={styles.introContainer}>
         <Intro
           title={title}

@@ -10,6 +10,7 @@ import React, {
 import styles from './contentSlider.module.scss';
 import cn from 'classnames';
 import { BlocksContent, BlocksRenderer } from '@strapi/blocks-react-renderer';
+import Link from '@/src/components/atoms/links/link/link';
 
 export type ItemSliderProps = {
   title: string;
@@ -127,9 +128,9 @@ const ContentSlider = <K extends string = string>({
                   itemRefs.current[i] = el;
                 }}
                 className={cn(styles.viewItem, {
-                  [styles.isActive]: isActive,
                   [styles.isActiveVisible]: isActive && activeVisible,
                 })}
+                inert={!(isActive && activeVisible) ? true : undefined}
               >
                 <div className={styles.viewInner}>
                   <h3 className={styles.h3}>{item.title}</h3>
@@ -142,6 +143,20 @@ const ContentSlider = <K extends string = string>({
                       ),
                       'list-item': ({ children }) => (
                         <li className={styles.listItem}>{children}</li>
+                      ),
+                      link: ({ children, url, target }: any) => (
+                        <Link
+                          href={url}
+                          variant="secondary"
+                          target={target}
+                          rel={
+                            target === '_blank'
+                              ? 'noopener noreferrer'
+                              : undefined
+                          }
+                        >
+                          {children}
+                        </Link>
                       ),
                     }}
                   />

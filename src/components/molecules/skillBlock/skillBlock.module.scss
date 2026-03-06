@@ -20,7 +20,7 @@
 .graphSkillsWrapper {
   display: flex;
   flex-direction: column;
-  @include mq-up($sm) {
+  @include mq-up($break) {
     flex-direction: row;
     align-items: start;
   }

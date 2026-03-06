@@ -8,7 +8,8 @@
   },
   "header": {
     "main-nav": {
-      "nav-description": "Navigation principale"
+      "nav-description": "Navigation principale",
+      "skip-to-content": "Aller au contenu"
     },
     "menu-button": {
       "open": "Le menu de navigation latérale est ouvert",

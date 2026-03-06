@@ -66,3 +66,7 @@ li {
 *::after {
   box-sizing: border-box;
 }
+
+[id] {
+  scroll-margin-top: var(--header-height);
+}
