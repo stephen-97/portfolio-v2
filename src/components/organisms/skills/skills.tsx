@@ -1,8 +1,7 @@
 import React from 'react';
 import styles from './skills.module.scss';
 import Layout from '@/src/components/atoms/layout/layout';
-import BackgroundBlocks from '@/src/components/atoms/backgrounds/backgroundBlocks/backgroundBlocks';
-import { BackgroundBlocksSVG, SkillsGraphSVG2 } from '@/src/lib/svg';
+import { BackgroundBlocksSVG, SkillsGraphSVG } from '@/src/lib/svg';
 import Title from '@/src/components/atoms/title/title';
 import { SectionProps } from 'react-html-props';
 import { SkillsSection_strapi } from '@/src/lib/api-types/home-page';
@@ -61,7 +60,7 @@ const Services = ({ id, skills }: SkillsProps) => {
               key={block.id}
               {...block}
               color="neutral"
-              graphSVG={<SkillsGraphSVG2 />}
+              graphSVG={<SkillsGraphSVG />}
             />
           ))}
         </div>
