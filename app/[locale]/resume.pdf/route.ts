@@ -1,49 +1,41 @@
-import { NextRequest } from 'next/server';
+import { writeFile, mkdir } from 'fs/promises';
+import path from 'path';
 import { getResume, mapLocaleToStrapi } from '@/src/lib/strapi';
 import { AppLocale } from '@/app/[locale]/layout';
 
-export const runtime = 'nodejs';
+export const dynamic = 'force-static';
+
+export async function generateStaticParams() {
+  return [{ locale: 'fr' }, { locale: 'en' }];
+}
 
 export async function GET(
-  request: NextRequest,
-  { params }: { params: { locale: AppLocale } },
+  request: Request,
+  { params }: { params: Promise<{ locale: string }> },
 ) {
   const { locale } = await params;
 
-  try {
-    const strapiLocale = mapLocaleToStrapi(locale);
+  const strapiLocale = mapLocaleToStrapi(locale as AppLocale);
 
-    const resume = await getResume(strapiLocale);
-    const file = resume?.resume?.at?.(0);
+  const resume = await getResume(strapiLocale);
+  const file = resume?.resume?.at?.(0);
 
-    if (!file?.url) {
-      return new Response('Resume not found', { status: 404 });
-    }
-
-    const strapiBaseUrl = process.env.API_URL;
-
-    if (!strapiBaseUrl) {
-      throw new Error('STRAPI_URL is not defined');
-    }
-
-    const fileUrl = `${strapiBaseUrl}${file.url}`;
-
-    const response = await fetch(fileUrl);
-
-    if (!response.ok) {
-      throw new Error('Failed to fetch PDF from Strapi');
-    }
-
-    const pdfBuffer = await response.arrayBuffer();
-
-    return new Response(pdfBuffer, {
-      headers: {
-        'Content-Type': 'application/pdf',
-        'Content-Disposition': 'inline; filename="resume.pdf"',
-      },
-    });
-  } catch (error) {
-    console.error(error);
-    return new Response('Internal Server Error', { status: 500 });
+  if (!file?.url) {
+    return new Response('Resume not found', { status: 404 });
   }
+
+  const pdfRes = await fetch(`${process.env.API_URL}${file.url}`);
+  const buffer = Buffer.from(await pdfRes.arrayBuffer());
+
+  const dir = path.join(process.cwd(), 'public', locale);
+  const filePath = path.join(dir, 'resume.pdf');
+
+  await mkdir(dir, { recursive: true });
+  await writeFile(filePath, buffer);
+
+  return new Response(buffer, {
+    headers: {
+      'Content-Type': 'application/pdf',
+    },
+  });
 }

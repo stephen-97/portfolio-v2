@@ -13,17 +13,21 @@
   color: var(--color-text-primary);
   margin: 0;
   white-space: nowrap;
-}
 
-.index {
-  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
-  "Liberation Mono", "Courier New", monospace;
+  &::before {
+    content: attr(data-index);
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+    "Liberation Mono", "Courier New", monospace;
+    font-size: var(--font-3xl);
+    letter-spacing: 0.08em;
+    color: var(--color-text-secondary);
+    margin-right: 0.75rem;
+    font-weight: 500;
+  }
 
-  font-size: var(--font-3xl);
-  letter-spacing: 0.08em;
-  color: var(--color-text-secondary);
-  margin-right: 0.75rem;
-  font-weight: 500;
+  &:not([data-index])::before {
+    content: none;
+  }
 }
 
 .line {

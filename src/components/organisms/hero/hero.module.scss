@@ -5,6 +5,11 @@
   justify-content: center;
   min-height: calc(100dvh - var(--header-height));
   overflow: hidden;
+  @include mq-up($break) {
+    .inner {
+      padding-inline: 3rem;
+    }
+  }
   .introContainer {
     display: flex;
     flex-direction: column;

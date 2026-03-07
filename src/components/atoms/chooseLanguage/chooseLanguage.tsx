@@ -2,7 +2,6 @@
 
 import { useState, useRef, useEffect, memo } from 'react';
 import { usePathname } from 'next/navigation';
-import Link from 'next/link';
 import styles from './chooseLanguage.module.scss';
 import cn from 'classnames';
 
@@ -107,7 +106,7 @@ const ChooseLanguage = ({ className }: ChooseLanguageProps) => {
 
             return (
               <li key={option.value} role="none">
-                <Link
+                <a
                   href={newPath}
                   role="menuitem"
                   tabIndex={-1}
@@ -121,7 +120,7 @@ const ChooseLanguage = ({ className }: ChooseLanguageProps) => {
                   <span className={styles.flag}>{option.flag}</span>
                   <span>{option.label}</span>
                   {isActive && <span className={styles.valid}>✓</span>}
-                </Link>
+                </a>
               </li>
             );
           })}

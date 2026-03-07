@@ -1,5 +1,3 @@
-'use client';
-
 import React from 'react';
 import Hero from '@/src/components/organisms/hero/hero';
 import Skills from '@/src/components/organisms/skills/skills';

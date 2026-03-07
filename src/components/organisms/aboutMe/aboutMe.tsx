@@ -1,3 +1,5 @@
+'use client';
+
 import React from 'react';
 import styles from './aboutMe.module.scss';
 import Layout from '@/src/components/atoms/layout/layout';

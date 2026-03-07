@@ -20,8 +20,10 @@ const Title: React.FC<TitleProps> = ({
 
   return (
     <div className={`${styles.wrapper} ${className}`}>
-      <Component className={styles.title}>
-        {index && <span className={styles.index}>{index}</span>}
+      <Component
+        className={styles.title}
+        {...(index ? { 'data-index': index } : {})}
+      >
         {children}
       </Component>
       <span className={styles.line} />

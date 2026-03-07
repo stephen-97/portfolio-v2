@@ -16,7 +16,7 @@ const Hero = ({ heroData, locale }: HeroProps) => {
   const { title, description, subtitle, statistic } = heroData;
 
   return (
-    <Layout className={styles.hero}>
+    <Layout className={styles.hero} innerClassName={styles.inner}>
       <div className={styles.introContainer}>
         <Intro
           title={title}

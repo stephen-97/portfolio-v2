@@ -6,7 +6,6 @@ import { NextIntlClientProvider } from 'next-intl';
 import { getMessages, setRequestLocale } from 'next-intl/server';
 import { notFound } from 'next/navigation';
 import Script from 'next/script';
-import { cookies } from 'next/headers';
 
 const locales = ['en', 'fr'] as const;
 
@@ -24,10 +23,10 @@ export const metadata: Metadata = {
 };
 
 type RootLayoutProps = {
-  params: Promise<{
-    locale: AppLocale;
-  }>;
   children: React.ReactNode;
+  params: Promise<{
+    locale: string;
+  }>;
 };
 
 export default async function RootLayout({
@@ -36,27 +35,18 @@ export default async function RootLayout({
 }: RootLayoutProps) {
   const { locale } = await params;
 
-  if (!locales.includes(locale)) {
+  if (!locales.includes(locale as AppLocale)) {
     notFound();
   }
 
-  setRequestLocale(locale);
+  const appLocale = locale as AppLocale;
+
+  setRequestLocale(appLocale);
+
   const messages = await getMessages();
 
-  const cookieStore = await cookies();
-  const themeFromCookie = cookieStore.get('theme')?.value;
-
-  const theme =
-    themeFromCookie === 'dark' || themeFromCookie === 'light'
-      ? themeFromCookie
-      : undefined;
-
   return (
-    <html
-      lang={locale}
-      {...(theme ? { 'data-theme': theme } : {})}
-      suppressHydrationWarning
-    >
+    <html lang={appLocale} suppressHydrationWarning>
       <head>
         <Script id="theme-init" strategy="beforeInteractive">
           {`

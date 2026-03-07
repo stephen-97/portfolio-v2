@@ -12,7 +12,7 @@ export async function getNavigation(locale: StrapiLocale) {
       headers: {
         Authorization: `Bearer ${STRAPI_TOKEN}`,
       },
-      cache: 'no-store',
+      next: { revalidate: 3600 },
     },
   );
 
@@ -43,7 +43,7 @@ export async function getHomePage(locale: StrapiLocale) {
       headers: {
         Authorization: `Bearer ${STRAPI_TOKEN}`,
       },
-      cache: 'no-store',
+      next: { revalidate: 3600 },
     },
   );
 
@@ -73,7 +73,7 @@ export async function getResume(locale: StrapiLocale) {
       headers: {
         Authorization: `Bearer ${STRAPI_TOKEN}`,
       },
-      cache: 'no-store',
+      next: { revalidate: 3600 },
     },
   );
 
@@ -87,44 +87,3 @@ export async function getResume(locale: StrapiLocale) {
 
   return json.data;
 }
-
-/**
- * {
- *   "data": {
- *     "id": 3,
- *     "documentId": "todqida8cxx8pq725xgiyara",
- *     "createdAt": "2026-03-03T15:42:07.292Z",
- *     "updatedAt": "2026-03-03T15:54:42.930Z",
- *     "publishedAt": "2026-03-03T15:54:42.948Z",
- *     "locale": "en",
- *     "resume": [
- *       {
- *         "id": 1,
- *         "documentId": "qsp5uv5amnple9ase6p0hywm",
- *         "name": "Developer JavaScript & sdsd.pdf",
- *         "alternativeText": "",
- *         "caption": "",
- *         "focalPoint": null,
- *         "width": null,
- *         "height": null,
- *         "formats": null,
- *         "hash": "Developer_Java_Script_and_Type_Scriptsds
- *         "ext": ".pdf",
- *         "mime": "application/pdf",
- *         "size": 444.58,
- *         "url": "/uploads/Developer_Java_Script_sdsdS_CV_4aec0f334d.pdf",
- *         "previewUrl": null,
- *         "provider": "local",
- *         "provider_metadata": null,
- *         "createdAt": "2026-03-03T15:38:49.955Z",
- *         "updatedAt": "2026-03-03T15:38:55.002Z",
- *         "publishedAt": "2026-03-03T15:38:49.955Z"
- *       }
- *     ],
- *     "localizations": []
- *   },
- *   "meta": {
- *
- *   }
- * }
- */
