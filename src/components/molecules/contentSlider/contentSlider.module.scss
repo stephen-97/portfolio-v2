@@ -94,16 +94,16 @@
   flex: 1;
   position: relative;
   width: 100%;
-  padding: 0.625rem 0.75rem;
+  padding: .75rem;
   justify-content: center;
   align-items: center;
-  border-radius: 0.5rem;
+  border-radius: .5rem;
   border: 0;
   background: transparent;
   cursor: pointer;
   color: var(--slider-tab-text);
   font-size: var(--font-sm);
-  font-weight: 600;
+  font-weight: 700;
   transition: color 200ms ease;
 
   &.active {
@@ -165,7 +165,7 @@
   top: 0.6rem;
   width: 0;
   height: 0;
-  border-left: 0.5rem solid var(--accent, #64ffda);
+  border-left: 0.5rem solid var(--accent, #3b82f6);
   border-top: 0.3rem solid transparent;
   border-bottom: 0.3rem solid transparent;
 }

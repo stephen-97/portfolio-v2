@@ -5,7 +5,10 @@ import '@/src/styles/global.scss';
 import { NextIntlClientProvider } from 'next-intl';
 import { getMessages, setRequestLocale } from 'next-intl/server';
 import { notFound } from 'next/navigation';
-import Script from 'next/script';
+import { ThemeRuntime } from '@/src/lib/theme-script';
+import { Header } from '@/src/components/organisms/header/header';
+import Footer from '@/src/components/organisms/footer/footer';
+import { getNavigation, mapLocaleToStrapi } from '@/src/lib/strapi';
 
 const locales = ['en', 'fr'] as const;
 
@@ -45,22 +48,41 @@ export default async function RootLayout({
 
   const messages = await getMessages();
 
+  const strapiLocale = mapLocaleToStrapi(appLocale);
+  const navigation = await getNavigation(strapiLocale);
+
+  const quickLinks = navigation.links;
+  const socialMediaLinks = navigation.mediaLinks;
+
   return (
     <html lang={appLocale} suppressHydrationWarning>
       <head>
-        <Script id="theme-init" strategy="beforeInteractive">
-          {`
-            try {
-              const stored = localStorage.getItem('theme');
-              if (stored === 'dark' || stored === 'light') {
-                document.documentElement.setAttribute('data-theme', stored);
-                document.cookie = 'theme=' + stored + '; Path=/; Max-Age=31536000; SameSite=Lax';
-              }
-            } catch (e) {}
-          `}
-        </Script>
-      </head>
+        <script
+          suppressHydrationWarning
+          dangerouslySetInnerHTML={{
+            __html: `(function () {
+        const el = document.documentElement;
 
+        function getSystemTheme() {
+          return window.matchMedia('(prefers-color-scheme: dark)').matches
+            ? 'dark'
+            : 'light';
+        }
+
+        try {
+          const stored = localStorage.getItem('theme');
+          const theme =
+            stored === 'system'
+              ? getSystemTheme()
+              : stored || getSystemTheme();
+
+          el.setAttribute('data-theme', theme);
+          el.style.colorScheme = theme;
+        } catch {}
+      })();`,
+          }}
+        />
+      </head>
       <body
         className={`${spaceGrotesk.variable} font-sans antialiased`}
         style={{
@@ -68,8 +90,14 @@ export default async function RootLayout({
         }}
         suppressHydrationWarning
       >
+        <ThemeRuntime />
+
         <NextIntlClientProvider messages={messages}>
+          <Header quickLinks={quickLinks} locale={locale as AppLocale} />
+
           {children}
+
+          <Footer quickLinks={quickLinks} socialMediaLinks={socialMediaLinks} />
         </NextIntlClientProvider>
       </body>
     </html>

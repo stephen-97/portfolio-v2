@@ -12,20 +12,24 @@ export function proxy(req: NextRequest) {
     pathname.includes('/api/') ||
     PUBLIC_FILE.test(pathname)
   ) {
-    return;
+    return NextResponse.next();
   }
 
   if (pathname === '/') {
-    return NextResponse.redirect(new URL(`/${defaultLocale}`, req.url));
+    const url = req.nextUrl.clone();
+    url.pathname = `/${defaultLocale}`;
+    return NextResponse.redirect(url);
   }
 
-  const pathnameHasLocale = locales.some((locale) =>
-    pathname.startsWith(`/${locale}`),
+  const pathnameHasLocale = locales.some(
+    (locale) => pathname === `/${locale}` || pathname.startsWith(`/${locale}/`),
   );
 
   if (!pathnameHasLocale) {
-    return NextResponse.redirect(
-      new URL(`/${defaultLocale}${pathname}`, req.url),
-    );
+    const url = req.nextUrl.clone();
+    url.pathname = `/${defaultLocale}${pathname}`;
+    return NextResponse.redirect(url);
   }
+
+  return NextResponse.next();
 }

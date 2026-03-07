@@ -1,10 +1,22 @@
 {
+  "metadata": {
+    "title": "Stephen Loiola Bastos | Frontend Engineer",
+    "description": "Portfolio of Stephen Loiola Bastos, frontend developer specializing in Next.js and React.",
+    "keywords": "Stephen Loiola Bastos, frontend developer, React, Next.js, TypeScript, RGAA, web performance, web accessibility, JavaScript developer",
+    "author": "Stephen Loiola Bastos",
+    "site-name": "Stephen Loiola Bastos Portfolio",
+    "openGraph": {
+      "title": "Stephen Loiola Bastos | Frontend Engineer",
+      "description": "Portfolio of Stephen Loiola Bastos, specialized in React and Next.js.",
+      "type": "website"
+    }
+  },
   "footer": {
     "quickLinks-title": "Quick Links",
     "socialMedia-title": "Connect",
     "portfolio-title": "Portfolio",
     "copyrights": "Stephen Loiola Bastos. All rights reserved.",
-    "portfolio-description": "Designed and developed with Next.js and powered by Strapi as a headless CMS"
+    "portfolio-description": "Designed and developed with Next.js and powered by Strapi as a headless CMS."
   },
   "header": {
     "main-nav": {
@@ -13,7 +25,7 @@
     },
     "menu-button": {
       "open": "The side menu is open",
-      "close": "The side menu is close"
+      "close": "The side menu is closed"
     },
     "side-menu": {
       "quickLinks-title": "Quick Links",
@@ -31,5 +43,10 @@
         "see-more-button-title": "See more"
       }
     }
+  },
+  "not-found": {
+    "title": "404",
+    "subtitle": "Looks like you got lost 👀",
+    "description": "The page you're looking for doesn't exist."
   }
 }

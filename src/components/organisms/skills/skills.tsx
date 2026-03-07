@@ -34,7 +34,13 @@ const Services = ({ id, skills }: SkillsProps) => {
 
       <div className={styles.grid}>
         <div className={styles.left}>
-          {leftBlock && <SkillBlock color={'neutral'} {...leftBlock} />}
+          {leftBlock && (
+            <SkillBlock
+              className={styles.leftSkillsBlock}
+              color={'neutral'}
+              {...leftBlock}
+            />
+          )}
         </div>
 
         <ul className={styles.right}>

@@ -1,4 +1,16 @@
 {
+  "metadata": {
+    "title": "Stephen Loiola Bastos | Développeur Web | Développeur Frontend",
+    "description": "Portfolio de Stephen Loiola Bastos, développeur frontend en Next js et React.",
+    "keywords": "Stephen Loiola Bastos, développeur frontend, React, Next.js, TypeScript, RGAA, performance web, accessibilité web, développeur JavaScript",
+    "author": "Stephen Loiola Bastos",
+    "site-name": "Portfolio Stephen Loiola Bastos",
+    "openGraph": {
+      "title": "Stephen Loiola Bastos | Frontend Engineer",
+      "description": "Portfolio de Stephen Loiola Bastos, spécialisé en React et Next.js.",
+      "type": "website"
+    }
+  },
   "footer": {
     "quickLinks-title": "Liens rapides",
     "socialMedia-title": "Connectons nous ?",
@@ -31,5 +43,10 @@
         "see-more-button-title": "Voir plus"
       }
     }
+  },
+  "not-found": {
+    "title": "404",
+    "subtitle": "On dirait que tu t'es perdu 👀",
+    "description": "La page que tu recherches n'existe pas."
   }
 }

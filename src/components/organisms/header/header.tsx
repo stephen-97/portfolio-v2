@@ -12,12 +12,14 @@ import ChooseLanguage from '@/src/components/atoms/chooseLanguage/chooseLanguage
 import MobileMenu from '@/src/components/molecules/mobileMenu/mobileMenu';
 import { useTranslations } from 'next-intl';
 import Logo from '@/src/components/atoms/logo/logo';
+import { AppLocale } from '@/app/[locale]/layout';
 
 type HeaderProps = {
   quickLinks: Link_strapi[];
+  locale: AppLocale;
 };
 
-export const Header = ({ quickLinks }: HeaderProps) => {
+export const Header = ({ quickLinks, locale }: HeaderProps) => {
   const t = useTranslations('header');
 
   const [scrolled, setScrolled] = useState(false);
@@ -121,7 +123,15 @@ export const Header = ({ quickLinks }: HeaderProps) => {
           <ul>
             {quickLinks?.map((link) => (
               <li className={styles.item} key={link.id}>
-                <Link href={link.href}>{link.title}</Link>
+                <Link
+                  href={
+                    link.href.startsWith('#')
+                      ? `/${locale}${link.href}`
+                      : link.href
+                  }
+                >
+                  {link.title}
+                </Link>{' '}
               </li>
             ))}
           </ul>

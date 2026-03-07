@@ -148,7 +148,7 @@
 
     /** Slider **/
 
-    --slider-tab-text: rgba(75, 85, 99, 0.8);
+    --slider-tab-text: rgba(75, 85, 99, 0.9);
     --slider-tab-text-hover: var(--color-text-primary);
     --slider-tabs-border: rgba(0, 0, 0, 0.12);
     --slider-views-border: rgba(0, 0, 0, 0.12);
