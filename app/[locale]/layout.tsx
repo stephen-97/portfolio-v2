@@ -9,6 +9,7 @@ import { ThemeRuntime } from '@/src/lib/theme-script';
 import { Header } from '@/src/components/organisms/header/header';
 import Footer from '@/src/components/organisms/footer/footer';
 import { getNavigation, mapLocaleToStrapi } from '@/src/lib/strapi';
+import navigationFallback from '@/src/lib/navigation.json';
 
 const locales = ['en', 'fr'] as const;
 
@@ -49,7 +50,16 @@ export default async function RootLayout({
   const messages = await getMessages();
 
   const strapiLocale = mapLocaleToStrapi(appLocale);
-  const navigation = await getNavigation(strapiLocale);
+
+  let navigation;
+
+  try {
+    navigation = await getNavigation(strapiLocale);
+  } catch (error) {
+    console.error('Navigation fetch failed, using fallback JSON');
+    // For not static page, not-found.
+    navigation = navigationFallback;
+  }
 
   const quickLinks = navigation.links;
   const socialMediaLinks = navigation.mediaLinks;

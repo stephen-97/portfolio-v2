@@ -46,7 +46,8 @@
   display: flex;
   justify-content: center;
   align-self: center;
-  max-width: 17.5rem;
+  max-width: 20.5rem;
+
   @include mq-up($xs) {
     max-width: 22rem;
   }

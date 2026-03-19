@@ -1,0 +1,71 @@
+{
+  "id": 9,
+  "documentId": "nwcd5tt21zdlajx1dh83yhcr",
+  "createdAt": "2026-02-24T21:12:14.481Z",
+  "updatedAt": "2026-03-04T22:51:07.374Z",
+  "publishedAt": "2026-03-04T22:51:07.401Z",
+  "locale": "en",
+  "links": [
+    {
+      "id": 57,
+      "href": "#about",
+      "title": "About"
+    },
+    {
+      "id": 58,
+      "href": "#skills",
+      "title": "Skills"
+    },
+    {
+      "id": 59,
+      "href": "#projects",
+      "title": "Projects"
+    },
+    {
+      "id": 60,
+      "href": "#works",
+      "title": "Works"
+    }
+  ],
+  "mediaLinks": [
+    {
+      "id": 169,
+      "href": "https://github.com/stephen-97",
+      "label": "Github",
+      "icon": {
+        "id": 6,
+        "documentId": "gc07ex4dkhn6xh8818uezagc",
+        "title": "Github",
+        "createdAt": "2026-02-25T21:37:27.560Z",
+        "updatedAt": "2026-02-25T21:37:27.560Z",
+        "publishedAt": "2026-02-25T22:34:22.032Z"
+      }
+    },
+    {
+      "id": 170,
+      "href": "https://www.linkedin.com/in/stephen-loiola-bastos-04351814b/",
+      "label": "Linkedin",
+      "icon": {
+        "id": 4,
+        "documentId": "y1lfjdoq9qeizk59w7j354yy",
+        "title": "Linkedin",
+        "createdAt": "2026-02-25T21:37:44.957Z",
+        "updatedAt": "2026-02-25T21:37:44.957Z",
+        "publishedAt": "2026-02-25T22:34:22.017Z"
+      }
+    },
+    {
+      "id": 171,
+      "href": "mailto:stephen.loiola@hotmail.com",
+      "label": "Send an email to Stephen Loiola Bastos",
+      "icon": {
+        "id": 14,
+        "documentId": "v0pj871hq5ezyqul610fl1e1",
+        "title": "mail",
+        "createdAt": "2026-03-04T22:49:45.208Z",
+        "updatedAt": "2026-03-04T22:49:45.883Z",
+        "publishedAt": "2026-03-04T22:49:45.893Z"
+      }
+    }
+  ]
+}

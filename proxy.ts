@@ -9,16 +9,11 @@ export function proxy(req: NextRequest) {
 
   if (
     pathname.startsWith('/_next') ||
+    pathname.startsWith('/_vercel') ||
     pathname.includes('/api/') ||
     PUBLIC_FILE.test(pathname)
   ) {
     return NextResponse.next();
-  }
-
-  if (pathname === '/') {
-    const url = req.nextUrl.clone();
-    url.pathname = `/${defaultLocale}`;
-    return NextResponse.redirect(url);
   }
 
   const pathnameHasLocale = locales.some(
