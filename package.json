@@ -13,8 +13,6 @@
   "dependencies": {
     "@strapi/blocks-react-renderer": "^1.0.2",
     "classnames": "^2.5.1",
-    "eslint-config-prettier": "^10.1.8",
-    "eslint-plugin-prettier": "^5.5.5",
     "framer-motion": "^12.34.0",
     "i": "^0.3.7",
     "next": "16.1.6",
@@ -35,6 +33,8 @@
     "@types/react-transition-group": "^4.4.12",
     "eslint": "^9",
     "eslint-config-next": "16.1.6",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-prettier": "^5.5.5",
     "sass": "^1.97.3",
     "typescript": "^5"
   }
