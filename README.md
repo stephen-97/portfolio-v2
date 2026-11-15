@@ -36,10 +36,3 @@ Before running the project, make sure you have:
 - **pnpm**
 - a working **Strapi** instance
 
-## Installation
-
-Clone the repository:
-
-```bash
-git clone <your-repository-url>
-cd <your-project-folder>
