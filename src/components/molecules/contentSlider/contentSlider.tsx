@@ -44,22 +44,37 @@ const ContentSlider = <K extends string = string>({
     activeIndexRef.current = activeIndex;
   }, [activeIndex]);
 
+  // Position mesurée dans le contenu de la barre (offsetLeft) et non à
+  // l'écran : elle reste juste quand la barre défile horizontalement (mobile).
   const measureIndicator = (index: number) => {
     const btn = btnRefs.current[index];
-    const container = tabsRef.current;
-    if (!btn || !container) return;
-
-    const btnRect = btn.getBoundingClientRect();
-    const containerRect = container.getBoundingClientRect();
+    if (!btn) return;
 
     setIndicator({
-      left: btnRect.left - containerRect.left,
-      width: btnRect.width,
+      left: btn.offsetLeft,
+      width: btn.offsetWidth,
     });
   };
 
   useLayoutEffect(() => {
     measureIndicator(activeIndex);
+  }, [activeIndex]);
+
+  // Sur mobile, l'onglet choisi est ramené dans la partie visible de la
+  // barre (défilement horizontal de la barre seule, jamais de la page).
+  useEffect(() => {
+    const btn = btnRefs.current[activeIndex];
+    const container = tabsRef.current;
+    if (!btn || !container) return;
+
+    const left =
+      btn.offsetLeft - container.clientWidth / 2 + btn.offsetWidth / 2;
+    container.scrollTo({
+      left: Math.max(0, left),
+      behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches
+        ? 'auto'
+        : 'smooth',
+    });
   }, [activeIndex]);
 
   useEffect(() => {
